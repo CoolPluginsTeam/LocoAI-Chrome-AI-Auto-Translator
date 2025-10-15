@@ -101,7 +101,7 @@ if(!class_exists('Atlt_Dashboard')){
         }
 
         public function __construct(){
-            add_action('wp_ajax_atlt_hide_review_notice', array($this, 'atlt_hide_review_notice'));
+            // add_action('wp_ajax_atlt_hide_review_notice', array($this, 'atlt_hide_review_notice'));
         }
 
         /**

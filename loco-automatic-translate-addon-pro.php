@@ -76,6 +76,8 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				require_once ATLT_PRO_PATH . 'admin/cpt_dashboard/cpt_dashboard.php';
 				$dashboard = Atlt_Dashboard::instance();
 			}
+
+
 		}
 
 		/**
@@ -689,7 +691,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					'target_language'      => isset( $translationData['target_language'] ) ? sanitize_text_field( $translationData['target_language'] ) : '',
 				);
 		
-				if ( class_exists( 'Atlt_Dashboard' ) ) {
+				// if ( class_exists( 'Atlt_Dashboard' ) ) {
 					// Atlt_Dashboard::store_options(
 					// 	'atlt',
 					// 	'plugins_themes',
@@ -706,7 +708,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					// 		'version_type'     => 'pro',
 					// 	)
 					// );
-				}
+				// }
 			}
 		
 			$rs = set_transient( $projectId, $dataToStore, 5 * MINUTE_IN_SECONDS );

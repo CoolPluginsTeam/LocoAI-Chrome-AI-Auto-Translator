@@ -41,37 +41,7 @@ if (!defined('ABSPATH')) {
         </ul>
     </div>
 
-    <div class="atlt-dashboard-translate-full">
-        <h3><?php esc_html_e('Automatically Translate Full Webpage', $text_domain); ?></h3>
-        <div class="atlt-dashboard-addon first">
-            <div class="atlt-dashboard-addon-l">
-                <strong><?php echo esc_html(atlt_get_plugin_display_name('automatic-translations-for-polylang', $text_domain)); ?></strong>
-                <span class="addon-desc"><?php esc_html_e('Polylang addon to translate webpages.', $text_domain); ?></span>
-                <?php if (atlt_is_plugin_installed('automatic-translations-for-polylang')): ?>
-                    <span class="installed"><?php esc_html_e('Installed', $text_domain); ?></span>
-                <?php else: ?>
-                    <a href="<?php echo esc_url(admin_url('plugin-install.php?s=AutoPoly+-+AI+Translation+For+Polylang&tab=search&type=term')); ?>" class="atlt-dashboard-btn" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Install', $text_domain); ?></a>
-                <?php endif; ?>
-            </div>
-			<div class="atlt-dashboard-addon-r">
-				<img src="<?php echo esc_url(ATLT_PRO_URL . 'admin/atlt-dashboard/images/polylang-addon.png'); ?>" alt="<?php esc_attr_e('Polylang Addon', $text_domain); ?>">
-			</div>
-        </div>
-        <div class="atlt-dashboard-addon">
-            <div class="atlt-dashboard-addon-l">
-                <strong><?php echo esc_html(atlt_get_plugin_display_name('automatic-translate-addon-for-translatepress', $text_domain)); ?></strong>
-                <span class="addon-desc"><?php esc_html_e('TranslatePress addon to translate webpages.', $text_domain); ?></span>
-                <?php if (atlt_is_plugin_installed('automatic-translate-addon-for-translatepress')): ?>
-                    <span class="installed"><?php esc_html_e('Installed', $text_domain); ?></span>
-                <?php else: ?>
-                    <a href="<?php echo esc_url(admin_url('plugin-install.php?s=AI+Translation+for+translatepress+by+coolplugins&tab=search&type=term')); ?>" class="atlt-dashboard-btn" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Install', $text_domain); ?></a>
-                <?php endif; ?>
-            </div>
-			<div class="atlt-dashboard-addon-r">
-				<img src="<?php echo esc_url(ATLT_PRO_URL . 'admin/atlt-dashboard/images/translatepress-addon.png'); ?>" alt="<?php esc_attr_e('TranslatePress Addon', $text_domain); ?>">
-			</div>
-        </div>
-    </div>
+   
 
     <div class="atlt-dashboard-rate-us">
         <h3><?php esc_html_e('Rate Us ⭐⭐⭐⭐⭐', $text_domain); ?></h3>
