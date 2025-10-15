@@ -5,7 +5,7 @@ const AutoTranslator = (function (window, $) {
     const configData = window.extradata;
     const { ajax_url: ajaxUrl, nonce: nonce, ATLT_URL: ATLT_URL, extra_class: rtlClass, dashboard_url: dashboardurl } = configData;
 
-  
+
 
     onLoad();
     function onLoad() {
@@ -50,25 +50,25 @@ const AutoTranslator = (function (window, $) {
         $(".atlt_save_strings").on("click", onSaveClick);
 
         // Open String translation modal on translate wrapper click
-        $(".atlt-translater").on("click", (e)=>{
-            if(!["BUTTON", "IMG", "A"].includes(e.target.tagName)){
+        $(".atlt-translater").on("click", (e) => {
+            if (!["BUTTON", "IMG", "A"].includes(e.target.tagName)) {
                 jQuery(e.delegateTarget).find(".inputGroup button.button[id]").trigger("click");
             }
         });
     }
 
-    
+
     function destroyYandexTranslator() {
         translationPerformed = false;
         $('.yt-button__icon.yt-button__icon_type_right').trigger('click');
         $('.atlt_custom_model.yandex-widget-container').find('.atlt_string_container').scrollTop(0);
-    
+
         const progressContainer = $('.modal-body.yandex-widget-body').find('.atlt_translate_progress');
         progressContainer.hide();
         progressContainer.find('.progress-wrapper').hide();
         progressContainer.find('#myProgressBar').css('width', '0');
         progressContainer.find('#progressText').text('0%');
-    }   
+    }
 
     function addStringsInModal(allStrings) {
         const plainStrArr = filterRawObject(allStrings, "plain");
@@ -131,10 +131,10 @@ const AutoTranslator = (function (window, $) {
     }
     // parse all translated strings and pass to save function
     function onSaveClick() {
-        
+
         // Safely access nested properties without optional chaining
         let pluginOrThemeName = '';
-        
+
         if (locoConf && locoConf.conf && locoConf.conf.project && locoConf.conf.project.bundle) {
             if (locoConf.conf.project.bundle.startsWith('theme.')) {
                 pluginOrThemeName = locoConf.conf.project.domain || '';
@@ -159,11 +159,11 @@ const AutoTranslator = (function (window, $) {
             '٪ d': ' %d ',
             '٪ D': ' %d ',
             '٪ س': ' %s ',
-            '%S': ' %s ', 
-            '%D': ' %d ', 
-            '% %':'%%'    
+            '%S': ' %s ',
+            '%D': ' %d ',
+            '% %': '%%'
         };
-        
+
         const regex = /(\%\s*\d+\s*\$?\s*[a-z0-9])/gi;
 
         $(".atlt_strings_table tbody tr").each(function () {
@@ -173,11 +173,11 @@ const AutoTranslator = (function (window, $) {
             const improvedTargetrpl = strtr(target, rpl);
             const improvedSourcerpl = strtr(source, rpl);
 
-            const improvedTarget = improvedTargetrpl.replace(regex, function(match) {
+            const improvedTarget = improvedTargetrpl.replace(regex, function (match) {
                 return match.replace(/\s/g, '').toLowerCase();
             });
 
-            const improvedSource = improvedSourcerpl.replace(regex, function(match) {
+            const improvedSource = improvedSourcerpl.replace(regex, function (match) {
                 return match.replace(/\s/g, '').toLowerCase();
             });
 
@@ -203,7 +203,7 @@ const AutoTranslator = (function (window, $) {
             pluginORthemeName: pluginOrThemeName,
             target_language: target_language
         }
-        
+
         var projectId = $(this).parents("#atlt_strings_model").find("#project_id").val();
 
         //  Save Translated Strings
@@ -378,7 +378,7 @@ const AutoTranslator = (function (window, $) {
                 var id = el.getAttribute('data-loco');
                 if (id == "auto") {
                     if ($(el).hasClass('model-opened')) {
-                        $(el).removeClass('model-opened'); 
+                        $(el).removeClass('model-opened');
                     }
                     $(el).addClass('model-opened');
                     $(el).trigger("click");
@@ -422,7 +422,7 @@ const AutoTranslator = (function (window, $) {
     // When the user clicks anywhere outside of the modal, close it
     $(window).click(function (event) {
         if (!event.target.closest(".modal-content")) {
-            destroyYandexTranslator();  
+            destroyYandexTranslator();
         }
         if (event.target == gModal) {
             gModal.style.display = "none";
@@ -492,64 +492,24 @@ const AutoTranslator = (function (window, $) {
             docs: extradata['document_preview'],
             error: extradata['error_preview']
         };
-    
+
         const url = 'https://locoaddon.com/docs/';
         const licenseLink = dashboardurl + '&tab=license';
         const ATLT_IMG = (key) => ATLT_URL + 'assets/images/' + icons[key];
         const DOC_ICON = `<img src="${ATLT_IMG('docs')}" width="20" alt="Docs">`;
-    
+
         const rows = [
-            {
-                name: 'Yandex Translate',
-                icon: 'yandex',
-                info: 'https://translate.yandex.com/',
-                btn: `<button id="atlt_yandex_translate_btn" class="atlt-provider-btn translate">Translate</button>`,
-                doc: `${url}translate-plugin-theme-via-yandex-translate/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_yandex`
-            },
-            {
-                name: 'Google Translate',
-                icon: 'google',
-                info: 'https://translate.google.com/',
-                btn: `<a href="${licenseLink}"><button id="atlt_google_translate_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
-                doc: `${url}auto-translations-via-google-translate/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_google_pro`
-            },
+
+
             {
                 name: 'Chrome Built-in AI',
                 icon: 'chrome',
                 info: 'https://developer.chrome.com/docs/ai/translator-api',
                 btn: `<a href="${licenseLink}"><button id="ChromeAiTranslator_settings_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
                 doc: `${url}how-to-use-chrome-ai-auto-translations/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_chrome_pro`
-            },
-            {
-                name: 'ChatGPT Translate',
-                icon: 'chatgpt',
-                info: 'https://chat.openai.com/',
-                btn: `<a href="${licenseLink}"><button id="atlt_chatGPT_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
-                doc: `${url}chatgpt-ai-translations-wordpress/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_chatgpt_pro`
-            },
-            {
-                name: 'Gemini Translate',
-                icon: 'gemini',
-                info: 'https://locoaddon.com/docs/pro-plugin/how-to-use-gemini-ai-to-translate-plugins-or-themes/',
-                btn: `<a href="${licenseLink}"><button id="atlt_geminiAI_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
-                doc: `${url}gemini-ai-translations-wordpress/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_gemini_pro`
-            },
-            {
-                name: 'OpenAI Translate',
-                icon: 'openai',
-                info: 'https://locoaddon.com/docs/pro-plugin/how-to-use-gemini-ai-to-translate-plugins-or-themes/',
-                btn: `<a href="${licenseLink}"><button id="atlt_openai_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
-                doc: `${url}gemini-ai-translations-wordpress/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_gemini_pro`
-            },
-            {
-                name: 'DeepL Translate',
-                icon: 'deepl',
-                info: 'https://www.deepl.com/en/translator',
-                btn: `<a href="${licenseLink}"><button id="atlt_deepl_btn" class="atlt-provider-btn error">Add License Key</button></a>`,
-                doc: `${url}translate-via-deepl-doc-translator/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_deepl_pro`
             }
         ];
-    
+
         const rowHTML = rows.map(row => `
             <tr>
                 <td class="atlt-provider-name">
@@ -564,7 +524,7 @@ const AutoTranslator = (function (window, $) {
                 </td>
             </tr>
         `).join('');
-    
+
         const modelHTML = `
             <div class="atlt-provider-modal" id="atlt-dialog" title="Step 2 - Select Translation Provider" style="display:none;">
                 <table class="atlt-provider-table">
@@ -575,10 +535,10 @@ const AutoTranslator = (function (window, $) {
                 </table>
             </div>
         `;
-    
+
         $("body").append(modelHTML);
     }
-    
+
     // modal to show strings
     function createStringsModal(projectId, widgetType) {
         // Set wrapper, header, and body classes based on widgetType
