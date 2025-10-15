@@ -26,9 +26,7 @@ if ( ! defined( 'ATLT_FEEDBACK_API' ) ) {
 
 
 
-// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Enums\AI_Capability;
-// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Helpers;
-// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main;
+
 
 
 /**
@@ -285,13 +283,10 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		}
 
 		public function init_ai_translate_service() {
-			// Initialize Plugin_Main if available
-			// $plugin_main = new Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main( ATLT_PRO_FILE );
-			// $plugin_main->add_hooks();
+			
 			require_once ATLT_PRO_PATH . 'includes/Helpers/ProHelpers.php';
-					// Include API file using predefined constant for secure path construction
-				// require_once ATLT_PRO_PATH . 'includes/ai-translate/api.php';
-		        require_once ATLT_PRO_PATH . 'admin/feedback/cron/atlt-cron.php';
+				
+		    require_once ATLT_PRO_PATH . 'admin/feedback/cron/atlt-cron.php';
 			$cron = new ATLT_cronjob();
 			$cron->atlt_cron_init_hooks();
 		}
@@ -695,22 +690,22 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				);
 		
 				if ( class_exists( 'Atlt_Dashboard' ) ) {
-					Atlt_Dashboard::store_options(
-						'atlt',
-						'plugins_themes',
-						'update',
-						array(
-							'plugins_themes'   => $metadata['pluginORthemeName'],
-							'service_provider' => $metadata['translation_provider'],
-							'source_language'  => 'en',
-							'target_language'  => $metadata['target_language'],
-							'time_taken'       => $metadata['time_taken'],
-							'string_count'     => $metadata['string_count'],
-							'character_count'  => $metadata['character_count'],
-							'date_time'        => date( 'Y-m-d H:i:s' ),
-							'version_type'     => 'pro',
-						)
-					);
+					// Atlt_Dashboard::store_options(
+					// 	'atlt',
+					// 	'plugins_themes',
+					// 	'update',
+					// 	array(
+					// 		'plugins_themes'   => $metadata['pluginORthemeName'],
+					// 		'service_provider' => $metadata['translation_provider'],
+					// 		'source_language'  => 'en',
+					// 		'target_language'  => $metadata['target_language'],
+					// 		'time_taken'       => $metadata['time_taken'],
+					// 		'string_count'     => $metadata['string_count'],
+					// 		'character_count'  => $metadata['character_count'],
+					// 		'date_time'        => date( 'Y-m-d H:i:s' ),
+					// 		'version_type'     => 'pro',
+					// 	)
+					// );
 				}
 			}
 		
@@ -949,13 +944,13 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			$alreadyRated = get_option('atlt-already-rated', 'no');
 
 			// Check if the user has already rated
-			if ($ratingDiv !== 'yes' && $alreadyRated !== 'yes' && class_exists('Atlt_Dashboard')) {
-				Atlt_Dashboard::review_notice(
-					'atlt', 
-					'LocoAI – Auto Translate for Loco Translate (Pro)', 
-					'https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post',
-				);
-			}
+			// if ($ratingDiv !== 'yes' && $alreadyRated !== 'yes' && class_exists('Atlt_Dashboard')) {
+			// 	Atlt_Dashboard::review_notice(
+			// 		'atlt', 
+			// 		'LocoAI – Auto Translate for Loco Translate (Pro)', 
+			// 		'https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post',
+			// 	);
+			// }
 		}
 
 		/*
@@ -1036,13 +1031,13 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				$alreadyRated = get_option('atlt-already-rated', 'no');
 	
 				// Check if the user has already rated
-				if ($ratingDiv !== 'yes' && $alreadyRated !== 'yes' && class_exists('Atlt_Dashboard')) {
-					Atlt_Dashboard::review_notice(
-						'atlt', 
-						'LocoAI – Auto Translate for Loco Translate (Pro)', 
-						'https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post',
-					);
-				}
+				// if ($ratingDiv !== 'yes' && $alreadyRated !== 'yes' && class_exists('Atlt_Dashboard')) {
+					// Atlt_Dashboard::review_notice(
+					// 	'atlt', 
+					// 	'LocoAI – Auto Translate for Loco Translate (Pro)', 
+					// 	'https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post',
+					// );
+				// }
 			}
 
 		/*

@@ -126,14 +126,14 @@ if(!class_exists("LocoAutomaticTranslateAddonPro")) {
                 );
 
                 // Get current tab with strict validation
-                $tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'dashboard';
+                $tab = isset($_GET['tab']) ? sanitize_key($_GET['tab']) : 'license';
                 
                 // Validate against whitelist
                 if (!in_array($tab, $allowed_tab_files, true)) {
                     $tab = 'dashboard';
                 }
                 
-                $current_tab = array_key_exists($tab, $valid_tabs) ? $tab : 'dashboard';
+                $current_tab = array_key_exists($tab, $valid_tabs) ? $tab : 'license';
                 
                 // Start HTML output
                 ?>
@@ -230,9 +230,9 @@ if(!class_exists("LocoAutomaticTranslateAddonPro")) {
 
         private function atlt_get_valid_tabs($text_domain) {
             return [
-                'dashboard'       => __('Dashboard', $text_domain),
-                'ai-translations' => __('AI Translations', $text_domain),
-                'settings'        => __('Settings', $text_domain),
+                // 'dashboard'       => __('Dashboard', $text_domain),
+                // 'ai-translations' => __('AI Translations', $text_domain),
+                // 'settings'        => __('Settings', $text_domain),
                 'license'         => __('License', $text_domain)
             ];
         }
