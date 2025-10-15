@@ -290,8 +290,8 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			$plugin_main->add_hooks();
 			require_once ATLT_PRO_PATH . 'includes/Helpers/ProHelpers.php';
 					// Include API file using predefined constant for secure path construction
-				require_once ATLT_PRO_PATH . 'includes/ai-translate/api.php';
-		require_once ATLT_PRO_PATH . 'admin/feedback/cron/atlt-cron.php';
+				// require_once ATLT_PRO_PATH . 'includes/ai-translate/api.php';
+		        require_once ATLT_PRO_PATH . 'admin/feedback/cron/atlt-cron.php';
 			$cron = new ATLT_cronjob();
 			$cron->atlt_cron_init_hooks();
 		}

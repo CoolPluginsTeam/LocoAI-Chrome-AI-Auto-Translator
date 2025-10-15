@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_API_Client' => $baseDir . '/includes/ai-translate/Deepl/Deepl_AI_API_Client.php',
+    // 'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_API_Client' => $baseDir . '/includes/ai-translate/Deepl/Deepl_AI_API_Client.php',
     'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_Service' => $baseDir . '/includes/ai-translate/Deepl/Deepl_AI_Service.php',
     'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_Text_Generation_Model' => $baseDir . '/includes/ai-translate/Deepl/Deepl_AI_Text_Generation_Model.php',
     'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Google\\Google_AI_API_Client' => $baseDir . '/includes/ai-translate/Google/Google_AI_API_Client.php',

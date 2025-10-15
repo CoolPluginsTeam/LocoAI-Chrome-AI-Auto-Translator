@@ -70,8 +70,8 @@ class ComposerStaticInit6e91119ec4de7b3ace0785b16882ecd2
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_API_Client' => __DIR__ . '/../..' . '/includes/ai-translate/Deepl/Deepl_AI_API_Client.php',
-        'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_Service' => __DIR__ . '/../..' . '/includes/ai-translate/Deepl/Deepl_AI_Service.php',
+        // 'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_API_Client' => __DIR__ . '/../..' . '/includes/ai-translate/Deepl/Deepl_AI_API_Client.php',
+        // 'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_Service' => __DIR__ . '/../..' . '/includes/ai-translate/Deepl/Deepl_AI_Service.php',
         'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Deepl\\Deepl_AI_Text_Generation_Model' => __DIR__ . '/../..' . '/includes/ai-translate/Deepl/Deepl_AI_Text_Generation_Model.php',
         'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Google\\Google_AI_API_Client' => __DIR__ . '/../..' . '/includes/ai-translate/Google/Google_AI_API_Client.php',
         'Loco_Automatic_Translate_Addon_Pro\\AI_Translate\\Google\\Google_AI_Service' => __DIR__ . '/../..' . '/includes/ai-translate/Google/Google_AI_Service.php',
