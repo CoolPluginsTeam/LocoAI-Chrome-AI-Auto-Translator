@@ -25,15 +25,6 @@ if ( ! defined( 'ATLT_FEEDBACK_API' ) ) {
 }
 
 
-
-
-
-
-/**
- * @package LocoAI – Auto Translate for Loco Translate (Pro)
- * @version 1.4.1
- */
-
 if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 
 	/** Singleton ************************************/
@@ -54,7 +45,6 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			if ( null === self::$instance ) {
 				self::$instance = new self();
 
-				// register all hooks
 				self::$instance->register();
 
 			}
@@ -65,19 +55,10 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 * Constructor.
 		 */
 		public function __construct() {
-			 // Setup your plugin object here
+		
 			 $this->init_ai_translate_service();
-
-			 // Initialize feedback notice
+			
 			 $this->init_feedback_notice();
-
-			// Add CPT Dashboard initialization
-			if (!class_exists('Atlt_Dashboard')) {
-				require_once ATLT_PRO_PATH . 'admin/cpt_dashboard/cpt_dashboard.php';
-				$dashboard = Atlt_Dashboard::instance();
-			}
-
-
 		}
 
 		/**
@@ -107,8 +88,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				add_action( 'plugins_loaded', array( $thisPlugin, 'atlt_include_files' ) );
 				add_action( 'admin_enqueue_scripts', array( $thisPlugin, 'atlt_enqueue_scripts' ) );
 
-				// Add the action to hide unrelated notices
-				// Enhanced validation for page parameter to prevent parameter pollution
+				
 				if ( isset( $_GET['page'] ) ) {
 					// Sanitize immediately after retrieving the parameter
 					$page_param = sanitize_key( wp_unslash( $_GET['page'] ) );
@@ -125,7 +105,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				add_action( 'loco_api_ajax', array( $thisPlugin, 'atlt_ajax_init' ), 0, 0 );
 				add_action( 'wp_ajax_save_all_translations', array( $thisPlugin, 'atlt_save_translations_handler' ) );
 				add_action( 'wp_ajax_atlt_cool_plugins_admin_notice', array( $thisPlugin, 'atlt_admin_notice_dismiss' ) );
-				add_action('wp_ajax_atlt_geminiAI_openAI_ajax_handler', array($thisPlugin, 'atlt_geminiAI_openAI_ajax_handler'));
+				// add_action('wp_ajax_atlt_geminiAI_openAI_ajax_handler', array($thisPlugin, 'atlt_geminiAI_openAI_ajax_handler'));
 
 				/*
 				since version 2.0
@@ -156,21 +136,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			return $links;
 		}
 
-		/**
-		 * Display custom update notices for the LocoAI Pro plugin in the WordPress plugins list table.
-		 *
-		 * This function checks the plugin's license status and update availability, and then conditionally
-		 * displays messages in the plugin list:
-		 *
-		 * - If an update is available but the license key is not entered, it shows a warning to activate the license.
-		 * - If the license or support period has expired, it displays a renewal message with appropriate links.
-		 * - If the license is valid, no custom notice is shown.
-		 *
-		 * Hooked into the 'after_plugin_row' action to insert notices below the plugin row.
-		 *
-		 * @param string $plugin_file The plugin file path relative to the plugins directory.
-		 * @param array  $plugin_data An array of plugin header data.
-		*/
+		
 
 		public function atlt_plugin_custom_notice( $plugin_file, $plugin_data ) {
 			

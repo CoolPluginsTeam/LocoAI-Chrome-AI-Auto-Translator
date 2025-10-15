@@ -43,11 +43,7 @@ if (!defined('ABSPATH')) {
 
    
 
-    <div class="atlt-dashboard-rate-us">
-        <h3><?php esc_html_e('Rate Us ⭐⭐⭐⭐⭐', $text_domain); ?></h3>
-        <p><?php esc_html_e('We\'d love your feedback! Hope this addon made auto-translations easier for you.', $text_domain); ?></p>
-        <a href="<?php echo esc_url('https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post'); ?>" class="review-link" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Submit a Review →', $text_domain); ?></a>
-    </div>
+   
 </div>
 
 <?php

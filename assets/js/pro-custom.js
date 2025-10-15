@@ -361,84 +361,84 @@ const AutoTranslator = (function (window, $, gTranslateWidget) {
         }
 
         // Make AJAX request
-        function makeAjaxRequest(chunk, batchIndex, requestIndex) {
-            const data = {
-                action: 'atlt_geminiAI_openAI_ajax_handler',
-                nonce: nonce,
-                source_data: {
-                    locale: locale,
-                    source: chunk,
-                    selectedApi: selectedApi
-                },
-                metadata: {
-                    batchIndex: batchIndex,
-                    requestIndex: requestIndex
-                }
-            };
+        // function makeAjaxRequest(chunk, batchIndex, requestIndex) {
+        //     const data = {
+        //         action: 'atlt_geminiAI_openAI_ajax_handler',
+        //         nonce: nonce,
+        //         source_data: {
+        //             locale: locale,
+        //             source: chunk,
+        //             selectedApi: selectedApi
+        //         },
+        //         metadata: {
+        //             batchIndex: batchIndex,
+        //             requestIndex: requestIndex
+        //         }
+        //     };
 
-            return new Promise((resolve, reject) => {
-                state.ajaxStore.push($.ajax({
-                    url: ajaxUrl,
-                    type: 'POST',
-                    data: data,
-                    success: function (response) {
-                        if (!state.stopResponse && !response.success) {
-                            state.stopProcess = false;
-                            state.stopResponse = true;
-                            elements.warningWrapper.html(`<h2>${response.data}</h2>`);
-                            elements.warningMessage.fadeIn("slow");
-                            elements.progressIndicator.fadeOut("slow");
-                            state.ajaxStore.forEach(item => item.abort());
-                            resolve();
-                            return;
-                        }
+        //     return new Promise((resolve, reject) => {
+        //         state.ajaxStore.push($.ajax({
+        //             url: ajaxUrl,
+        //             type: 'POST',
+        //             data: data,
+        //             success: function (response) {
+        //                 if (!state.stopResponse && !response.success) {
+        //                     state.stopProcess = false;
+        //                     state.stopResponse = true;
+        //                     elements.warningWrapper.html(`<h2>${response.data}</h2>`);
+        //                     elements.warningMessage.fadeIn("slow");
+        //                     elements.progressIndicator.fadeOut("slow");
+        //                     state.ajaxStore.forEach(item => item.abort());
+        //                     resolve();
+        //                     return;
+        //                 }
 
-                        if (response.success && response.data && response.data.data) {
-                            const result = processTranslatedStrings(response.data.data, response.data.metadata, sourceValues, selectedApi);
-                            const { source, target } = result;
-                            state.translatedResponse.push(Boolean(response.data.data));
+        //                 if (response.success && response.data && response.data.data) {
+        //                     const result = processTranslatedStrings(response.data.data, response.data.metadata, sourceValues, selectedApi);
+        //                     const { source, target } = result;
+        //                     state.translatedResponse.push(Boolean(response.data.data));
 
-                            let tbody = '';
-                            for (let j = 0; j < source.length; j++) {
-                                tbody += `<tr id="${state.currentIndex}"><td>${state.currentIndex + 1}</td><td class="notranslate source">${encodeHtmlEntity(source[j])}</td>`;
-                                tbody += `<td class="target translate">${encodeHtmlEntity(target[j])}</td></tr>`;
-                                state.currentIndex++;
-                            }
+        //                     let tbody = '';
+        //                     for (let j = 0; j < source.length; j++) {
+        //                         tbody += `<tr id="${state.currentIndex}"><td>${state.currentIndex + 1}</td><td class="notranslate source">${encodeHtmlEntity(source[j])}</td>`;
+        //                         tbody += `<td class="target translate">${encodeHtmlEntity(target[j])}</td></tr>`;
+        //                         state.currentIndex++;
+        //                     }
 
-                            state.totalTranslatedCount += source.reduce((sum, str) => sum + str.length, 0);
-                            state.totalTranslatedWords += source.reduce((sum, str) => sum + str.trim().split(/\s+/).filter(word => word.length > 0).length, 0);
-                            updateProgress();
+        //                     state.totalTranslatedCount += source.reduce((sum, str) => sum + str.length, 0);
+        //                     state.totalTranslatedWords += source.reduce((sum, str) => sum + str.trim().split(/\s+/).filter(word => word.length > 0).length, 0);
+        //                     updateProgress();
 
-                            if (!state.isModalAppended && tbody) {
-                                elements.tbody.html('');
-                                state.isModalAppended = true;
-                            }
+        //                     if (!state.isModalAppended && tbody) {
+        //                         elements.tbody.html('');
+        //                         state.isModalAppended = true;
+        //                     }
 
-                            if (tbody) {
-                                elements.tbody.append(tbody);
-                                const stringContainer = container.find('.atlt_string_container');
-                                stringContainer.off('scroll').stop();
+        //                     if (tbody) {
+        //                         elements.tbody.append(tbody);
+        //                         const stringContainer = container.find('.atlt_string_container');
+        //                         stringContainer.off('scroll').stop();
 
-                                const tbodyScrollHeight = stringContainer.find('.atlt_strings_table tbody').prop('scrollHeight');
-                                const scrollSpeed = 3000;
+        //                         const tbodyScrollHeight = stringContainer.find('.atlt_strings_table tbody').prop('scrollHeight');
+        //                         const scrollSpeed = 3000;
 
-                                if (tbodyScrollHeight > 100) {
-                                    if (container.css('display') === 'block') {
-                                        stringContainer.animate({
-                                            scrollTop: tbodyScrollHeight
-                                        }, scrollSpeed, 'linear');
-                                    }
-                                }
-                            } else {
-                                handleEmptyResponse();
-                            }
-                        }
-                        resolve();
-                    },
-                    error: reject
-                }));
-            });
-        }
+        //                         if (tbodyScrollHeight > 100) {
+        //                             if (container.css('display') === 'block') {
+        //                                 stringContainer.animate({
+        //                                     scrollTop: tbodyScrollHeight
+        //                                 }, scrollSpeed, 'linear');
+        //                             }
+        //                         }
+        //                     } else {
+        //                         handleEmptyResponse();
+        //                     }
+        //                 }
+        //                 resolve();
+        //             },
+        //             error: reject
+        //         }));
+        //     });
+        // }
 
         // Handle empty response
         function handleEmptyResponse() {
