@@ -24,11 +24,11 @@ if ( ! defined( 'ATLT_FEEDBACK_API' ) ) {
     define( 'ATLT_FEEDBACK_API', "https://feedback.coolplugins.net/" );
 }
 
-require_once __DIR__ . '/vendor/autoload.php';
 
-use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Enums\AI_Capability;
-use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Helpers;
-use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main;
+
+// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Enums\AI_Capability;
+// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Services\API\Helpers;
+// use Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main;
 
 
 /**
@@ -286,8 +286,8 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 
 		public function init_ai_translate_service() {
 			// Initialize Plugin_Main if available
-			$plugin_main = new Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main( ATLT_PRO_FILE );
-			$plugin_main->add_hooks();
+			// $plugin_main = new Loco_Automatic_Translate_Addon_Pro\AI_Translate\Plugin_Main( ATLT_PRO_FILE );
+			// $plugin_main->add_hooks();
 			require_once ATLT_PRO_PATH . 'includes/Helpers/ProHelpers.php';
 					// Include API file using predefined constant for secure path construction
 				// require_once ATLT_PRO_PATH . 'includes/ai-translate/api.php';
