@@ -235,30 +235,6 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   overflow-y: scroll;
   height: calc(100% - 160px);
 }
-
-/* check it  dllsajfkjakfljaklsjfklsafklashklfsahlfhashglkashgklahsgkl---------------------------------------------*/
-
-/* body.rtl .ui-dialog[aria-describedby="loco-apis-batch"] .ui-widget-header {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
-} */
-body.rtl
-  div.ui-dialog[aria-describedby="loco-apis-batch"]
-  .ui-button.ui-dialog-titlebar-close {
-  left: 15px; /* Positions the button 15px from the left */
-  right: auto; /* Removes the right positioning */
-  margin: -10px 0 0 0;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-#atlt-dialog {
-  /* width: min-content !important; */
-  /* padding: 22px; */
-  border-radius: 8px;
-}
-
-/* Modal Styles */
 .atlt_custom_model {
   display: none;
   position: fixed;
@@ -269,21 +245,6 @@ body.rtl
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.75);
 }
-
-/* Keyframes */
-@keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-/* Header Styles */
 .atlt_custom_model .modal-header {
   padding: 2px 16px;
   background-color: #5cb85c;
@@ -302,7 +263,6 @@ body.rtl
   line-height: 22px;
 }
 
-/* Close Button */
 .atlt_custom_model .modal-header .close {
   color: white;
   font-size: 28px;
@@ -312,51 +272,11 @@ body.rtl
   top: 20px;
 }
 
-.atlt_custom_model .modal-header .close:hover,
-.atlt_custom_model .modal-header .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Action Buttons */
 .atlt_custom_model .atlt_actions {
   margin: 8px;
   position: absolute;
   top: 10px;
   right: 40px;
-}
-
-/* Keyframes for Action Button */
-@keyframes moveit {
-  from {
-    left: -22px;
-  }
-
-  to {
-    left: -10px;
-  }
-}
-
-/* Statistics Styles */
-.atlt_custom_model .atlt_stats {
-  padding: 0;
-  margin: 5px 160px 5px 0;
-  width: calc(100% - 160px);
-}
-
-.atlt_custom_model .modal-footer .atlt_stats {
-  margin: 22px 160px 5px 0;
-}
-
-.atlt_custom_model .atlt_stats a {
-  color: #fff936;
-}
-
-/* Modal Body Styles */
-.atlt_custom_model .modal-body {
-  padding: 2px 16px;
-  position: relative;
 }
 
 .atlt_custom_model .notice-dismiss {
@@ -372,10 +292,15 @@ body.rtl
   color: #5cb85c;
 }
 
+/* Modal Body Styles */
+.atlt_custom_model .modal-body {
+  padding: 2px 16px;
+  position: relative;
+}
+
 .ChromeAiTranslator .atlt_chrome_ai {
   display: inline-flex;
 }
-
 #chrome_ai_translator_element {
   margin-top: 12px;
   margin-right: 10px;
@@ -410,7 +335,6 @@ body.rtl
   padding: 0;
   margin: 0;
 }
-
 .atlt_custom_model table td:first-child,
 .atlt_custom_model table th:first-child {
   width: 60px;
@@ -430,7 +354,6 @@ body.rtl
   vertical-align: middle;
 }
 
-/* Translate Progress Styles */
 .atlt_custom_model .atlt_translate_progress {
   position: absolute;
   display: none;
@@ -449,7 +372,6 @@ body.rtl
   text-align: center;
   padding-top: 30px;
 }
-
 .atlt_custom_model .atlt_translate_warning-massage {
   position: absolute;
   display: none;
@@ -465,7 +387,85 @@ body.rtl
   font-size: 16px;
 }
 
-.atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper {
+.progress-percentage {
+  margin-top: 10px;
+}
+
+.atlt_custom_model .modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+  position: absolute;
+  width: calc(100% - 32px);
+  bottom: 0;
+  height: 66px;
+  z-index: 19;
+}
+
+/* Loco Modal Styles */
+.ui-dialog.loco-modal.addtranslations {
+  border: 6px solid #5cb85c;
+}
+
+/* check it  dllsajfkjakfljaklsjfklsafklashklfsahlfhashglkashgklahsgkl---------------------------------------------*/
+
+/* Modal Styles */
+
+/* Keyframes */
+/* @keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+} */
+
+/* Header Styles */
+
+/* Close Button */
+/* 
+.atlt_custom_model .modal-header .close:hover,
+.atlt_custom_model .modal-header .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+} */
+
+/* Action Buttons */
+
+/* Keyframes for Action Button */
+/* @keyframes moveit {
+  from {
+    left: -22px;
+  }
+
+  to {
+    left: -10px;
+  }
+} */
+
+/* Statistics Styles */
+/* .atlt_custom_model .atlt_stats {
+  padding: 0;
+  margin: 5px 160px 5px 0;
+  width: calc(100% - 160px);
+}
+
+.atlt_custom_model .modal-footer .atlt_stats {
+  margin: 22px 160px 5px 0;
+}
+
+.atlt_custom_model .atlt_stats a {
+  color: #fff936;
+} */
+
+/* Translate Progress Styles */
+
+/* .atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper {
   z-index: 10;
   width: 60%;
   max-height: 80vh;
@@ -482,18 +482,18 @@ body.rtl
   justify-content: center;
   flex-direction: column;
   overflow-y: auto;
-}
+} */
 
-.atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper h2 {
+/* .atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper h2 {
   margin: 8px 0;
   font-size: 16px;
   line-height: 1.4;
   word-wrap: break-word;
   max-width: 100%;
   text-align: center;
-}
+} */
 
-.atlt_custom_model
+/* .atlt_custom_model
   .atlt_translate_warning-massage
   .warning-massage-wrapper
   .close-button {
@@ -507,14 +507,14 @@ body.rtl
   cursor: pointer;
   color: black;
   z-index: 11;
-}
+} */
 
-.atlt_custom_model
+/* .atlt_custom_model
   .atlt_translate_warning-massage
   .warning-massage-wrapper
   .close-button:hover {
   color: red;
-}
+} */
 
 /* progress-bar */
 .progress-container {
@@ -572,32 +572,17 @@ body.rtl
   display: none;
 }
 
-.progress-percentage {
-  margin-top: 10px;
-}
-
-.atlt_custom_model .modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-  position: absolute;
-  width: calc(100% - 32px);
-  bottom: 0;
-  height: 66px;
-  z-index: 19;
-}
-
-body > div.skiptranslate > iframe#\:1\.container {
+/* body > div.skiptranslate > iframe#\:1\.container {
   display: none;
 }
 
-/* Loco Hint Styles */
+
 #loco-hint .loco-api.loco-api-loco_auto {
   display: none;
-}
+} */
 
 /* Merge Translations Loading Overlay */
-html.merge-translations:before {
+/* html.merge-translations:before {
   content: "Merging Translations.....";
   position: fixed;
   width: 100%;
@@ -608,12 +593,7 @@ html.merge-translations:before {
   font-size: 28px;
   text-align: center;
   padding-top: 50px;
-}
-
-/* Loco Modal Styles */
-.ui-dialog.loco-modal.addtranslations {
-  border: 6px solid #5cb85c;
-}
+} */
 
 .btn-disabled {
   pointer-events: none;
