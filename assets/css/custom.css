@@ -407,114 +407,6 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   border: 6px solid #5cb85c;
 }
 
-/* check it  dllsajfkjakfljaklsjfklsafklashklfsahlfhashglkashgklahsgkl---------------------------------------------*/
-
-/* Modal Styles */
-
-/* Keyframes */
-/* @keyframes animatetop {
-  from {
-    top: -300px;
-    opacity: 0;
-  }
-
-  to {
-    top: 0;
-    opacity: 1;
-  }
-} */
-
-/* Header Styles */
-
-/* Close Button */
-/* 
-.atlt_custom_model .modal-header .close:hover,
-.atlt_custom_model .modal-header .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-} */
-
-/* Action Buttons */
-
-/* Keyframes for Action Button */
-/* @keyframes moveit {
-  from {
-    left: -22px;
-  }
-
-  to {
-    left: -10px;
-  }
-} */
-
-/* Statistics Styles */
-/* .atlt_custom_model .atlt_stats {
-  padding: 0;
-  margin: 5px 160px 5px 0;
-  width: calc(100% - 160px);
-}
-
-.atlt_custom_model .modal-footer .atlt_stats {
-  margin: 22px 160px 5px 0;
-}
-
-.atlt_custom_model .atlt_stats a {
-  color: #fff936;
-} */
-
-/* Translate Progress Styles */
-
-/* .atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper {
-  z-index: 10;
-  width: 60%;
-  max-height: 80vh;
-  padding: 15px;
-  background-color: white;
-  position: absolute;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  overflow-y: auto;
-} */
-
-/* .atlt_custom_model .atlt_translate_warning-massage .warning-massage-wrapper h2 {
-  margin: 8px 0;
-  font-size: 16px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  max-width: 100%;
-  text-align: center;
-} */
-
-/* .atlt_custom_model
-  .atlt_translate_warning-massage
-  .warning-massage-wrapper
-  .close-button {
-  position: absolute;
-  top: -7px;
-  right: 0px;
-  font-weight: 700;
-  background: none;
-  border: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: black;
-  z-index: 11;
-} */
-
-/* .atlt_custom_model
-  .atlt_translate_warning-massage
-  .warning-massage-wrapper
-  .close-button:hover {
-  color: red;
-} */
 
 /* progress-bar */
 .progress-container {
@@ -572,17 +464,10 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   display: none;
 }
 
-/* body > div.skiptranslate > iframe#\:1\.container {
-  display: none;
-}
 
-
-#loco-hint .loco-api.loco-api-loco_auto {
-  display: none;
-} */
 
 /* Merge Translations Loading Overlay */
-/* html.merge-translations:before {
+html.merge-translations:before {
   content: "Merging Translations.....";
   position: fixed;
   width: 100%;
@@ -593,7 +478,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   font-size: 28px;
   text-align: center;
   padding-top: 50px;
-} */
+}
 
 .btn-disabled {
   pointer-events: none;
