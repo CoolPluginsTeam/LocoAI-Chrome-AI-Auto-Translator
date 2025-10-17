@@ -235,7 +235,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				
 					wp_register_style(
 						'loco-addon-custom-css',
-						ATLT_PRO_URL . 'assets/css/custom.min.css',
+						ATLT_PRO_URL . 'assets/css/custom.css',
 						null,
 						ATLT_PRO_VERSION,
 						'all'
