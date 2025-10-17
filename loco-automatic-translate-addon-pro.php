@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name:LocoAI – Auto Translate for Loco Translate (Pro)
-Description:Auto translation addon for Loco Translate – translate plugin & theme strings using AI tools like Google Translate, DeepL, ChatGPT, Gemini, OpenAI & more.
-Version:2.2.2
+Plugin Name:LocoAI – Chrome AI Auto Translator
+Description:Auto translation addon for Loco Translate – translate plugin & theme strings using AI tools like Chrome AI.
+Version:1.0.0
 License:GPLv3
 Text Domain:loco-translate-addon
 Domain Path:languages
@@ -17,13 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'ATLT_PRO_FILE', __FILE__ );
 define( 'ATLT_PRO_URL', plugin_dir_url( ATLT_PRO_FILE ) );
 define( 'ATLT_PRO_PATH', plugin_dir_path( ATLT_PRO_FILE ) );
-define( 'ATLT_PRO_VERSION', '2.2.2' );
+define( 'ATLT_PRO_VERSION', '1.0.0' );
 define( 'ATLT_PLUGIN_BASENAME', plugin_basename( ATLT_PRO_FILE ) );
-
-if ( ! defined( 'ATLT_FEEDBACK_API' ) ) {
-    define( 'ATLT_FEEDBACK_API', "https://feedback.coolplugins.net/" );
-}
-
 
 if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 
