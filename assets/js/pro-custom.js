@@ -76,7 +76,7 @@ const AutoTranslator = (function (window, $) {
             $(".notice-container")
                 .addClass('notice inline notice-warning')
                 .html("There is no plain string available for translations.");
-            $(".atlt_string_container, .choose-lang, .atlt_save_strings, .translator-widget,.chatGPT_save_close, .chatGPT_save_cont, .notice-info, .is-dismissible").hide();
+            $(".atlt_string_container, .choose-lang, .atlt_save_strings, .translator-widget, .notice-info, .is-dismissible").hide();
         }
     }
 
@@ -419,10 +419,6 @@ const AutoTranslator = (function (window, $) {
             if ($(event.target).hasClass("atlt_custom_model") && event.target === modal) {
                 modal.style.display = "none";
                 if ($(".container").length > 0) {
-                    // If it exists, remove it
-                    if ($(".chatGPT_steps-border").length > 0) {
-                        $(".chatGPT_steps-border").removeClass("chatGPT_steps-border");
-                    }
                     $(".container").remove();
                 }
             }
@@ -434,9 +430,6 @@ const AutoTranslator = (function (window, $) {
 
         if ($(".container").length > 0) {
             // If it exists, remove it
-            if ($(".chatGPT_steps-border").length > 0) {
-                $(".chatGPT_steps-border").removeClass("chatGPT_steps-border");
-            }
             $(".container").remove();
         }
         $(".atlt_custom_model").fadeOut("slow");
@@ -603,7 +596,6 @@ const AutoTranslator = (function (window, $) {
         const capitalizedString = capitalizeFirstLetter(translator_type);
         function capitalizeFirstLetter(str) {
             str = str.replace('ChromeAiTranslator', 'Chrome AI');
-            str = str.replace('deepl', 'DeepL');
             return str.charAt(0).toUpperCase() + str.slice(1);
         }
         const HTML = `<div class = "modal-scrollbar">

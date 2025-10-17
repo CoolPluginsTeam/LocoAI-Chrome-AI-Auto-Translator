@@ -70,10 +70,6 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				add_filter( 'loco_api_providers', array( $thisPlugin, 'atlt_register_api' ), 10, 1 );
 				add_action( 'loco_api_ajax', array( $thisPlugin, 'atlt_ajax_init' ), 0, 0 );
 				add_action( 'wp_ajax_save_all_translations', array( $thisPlugin, 'atlt_save_translations_handler' ) );
-				$action_param = isset( $_REQUEST['action'] ) ? sanitize_key( wp_unslash( $_REQUEST['action'] ) ) : '';
-				if ( $action_param === 'file-edit' ) {
-					add_action( 'admin_footer', array( $thisPlugin, 'atlt_load_gtranslate_scripts' ), 100 );
-				}
 		
 			}
 
@@ -217,69 +213,6 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					'response' => ( true === $rs ? 'saved' : 'cache already exists' ),
 				)
 			);
-		}
-		
-		function atlt_load_gtranslate_scripts() {
-			echo "<script>
-			function gTranslateWidget() {
-				var locale=locoConf.conf.locale;
-				var defaultcode = locale.lang?locale.lang:null;
-				switch(defaultcode){
-					case 'kir':
-						defaultlang='ky';
-						break;
-					case 'oci':
-						defaultlang='oc';
-						break;
-					case 'bel':
-					defaultlang='be';
-					break;
-					case 'he':
-						defaultlang='iw';
-						break;
-					case'snd':
-						defaultlang='sd';
-					break;
-					case 'jv':
-						defaultlang='jw';
-						break;
-						case 'nb':
-							defaultlang='no';
-							break;
-							case 'nn':
-							  defaultlang='no';
-							  break;
-					default:
-					defaultlang=defaultcode;
-				break;
-				return defaultlang;
-				}
-			   if(defaultlang=='zh'){
-			   new google.translate.TranslateElement(
-					{
-					pageLanguage: 'en',
-					includedLanguages: 'zh-CN,zh-TW',
-					defaultLanguage: 'zh-CN,zh-TW',
-					multilanguagePage: true
-					},
-					'google_translate_element'
-				);
-			}
-			else{
-				new google.translate.TranslateElement(
-					{
-					pageLanguage: 'en',
-					includedLanguages: defaultlang,
-					defaultLanguage: defaultlang,
-					multilanguagePage: true
-					},
-					'google_translate_element'
-				);
-			}
-			}
-			</script>
-		
-			";
 		}
 
 		
