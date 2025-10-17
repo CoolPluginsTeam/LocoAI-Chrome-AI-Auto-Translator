@@ -385,7 +385,7 @@ if(!class_exists("LocoAutomaticTranslateAddonPro")) {
                 wp_send_json_success(array(
                     'message' => 'License Status Updated successfully!',
                     'license_info' => $license_info,
-                    'version_available_message' => ProHelpers::getVersionAvailableMessage()
+                    // 'version_available_message' => ProHelpers::getVersionAvailableMessage()
                 ));
             } else {
                 // Map error message to error code

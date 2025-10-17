@@ -274,7 +274,7 @@ function atlt_render_expiry_message($license_info, $type = 'license') {
     $text_domain = 'loco-translate-addon';
     
     // Generate version available message using common helper
-    $version_available_message = ProHelpers::getVersionAvailableMessage();
+    // $version_available_message = ProHelpers::getVersionAvailableMessage();
     
     if ($license_info->msg === 'limit_reached') {
         $support_link = sprintf('<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>', esc_url('https://my.coolplugins.net/account/support-tickets/'), esc_html__('clicking here', 'atlt'));

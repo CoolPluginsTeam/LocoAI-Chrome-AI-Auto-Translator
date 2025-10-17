@@ -1,4 +1,4 @@
-/*
+/* 
 =======================================================
 LocoAI Dashboard - Admin Panel Styles
 =======================================================
@@ -461,55 +461,6 @@ button#atlt-refresh-license-btn {
   margin-top: 16px;
 }
 
-/* .atlt-dashboard-license-pro-container-buttons .check-btn {
-    background: var(--primary-color);
-    color: white;
-}
-
-.atlt-dashboard-license-pro-container-buttons .support-btn {
-    background: var(--background-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-}
-
-.atlt-dashboard-license-pro-container-buttons a:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
-} */
-
-/* ================================================
-   License pro
-================================================ */
-
-.atlt-dashboard-license-pro-container {
-  background: white;
-  font-family: Arial, sans-serif;
-  color: #333;
-  border: 1px solid #ddd;
-  padding: 24px;
-  border-radius: 5px;
-}
-
-.atlt-dashboard-license-pro-container h1 {
-  margin: 14px 0px 22px 0px;
-  font-size: 22px;
-  line-height: 25px;
-}
-
-.atlt-dashboard-license-pro-container ul {
-  list-style: none;
-  padding: 0;
-}
-
-.atlt-dashboard-license-pro-container ul li {
-  margin-bottom: 8px;
-}
-
-.valid {
-  color: green;
-  font-weight: bold;
-}
-
 .atlt-dashboard-license-pro-container .license-type,
 .atlt-dashboard-license-pro-container .validity {
   font-weight: bold;
@@ -539,109 +490,9 @@ button#atlt-refresh-license-btn {
   font-size: 14px;
 }
 
-.atlt-dashboard-license-pro-container .deactivate-btn:hover {
-  background: #c0392b;
-}
-
-.atlt-dashboard-license-pro-container-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.atlt-dashboard-license-pro-container-buttons .btns {
-  display: flex;
-  gap: 20px;
-}
-
+/* 
 /* ================================================
-   Settings Section
-================================================ */
-.atlt-dashboard-settings {
-  width: 100%;
-  margin-top: 25px;
-  flex: 2;
-}
-
-.atlt-dashboard-settings-container {
-  padding: 24px;
-  background: #fff;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-}
-
-.atlt-dashboard-settings h1 {
-  margin: 14px 0px 22px 0px;
-  font-size: 22px;
-  line-height: 25px;
-}
-
-.atlt-dashboard-api-settings-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.atlt-dashboard-api-settings {
-  width: 100%;
-}
-
-.atlt-dashboard-api-settings label {
-  display: block;
-  font-weight: bold;
-  margin: 13px 0px;
-}
-
-.atlt-dashboard-api-settings label:not(:first-of-type) {
-  padding: 10px 0px 0px 0px;
-  border-top: 1px solid var(--border-color);
-}
-
-.atlt-dashboard-api-settings .api-settings-label:not(:first-of-type) {
-  border-top: 1px solid var(--border-color);
-  margin-top: 25px;
-  padding-top: 18px;
-}
-
-.atlt-dashboard-api-settings .atlt-dashboard-api-settings-form {
-  width: 100%;
-}
-
-.atlt-dashboard-api-settings input[type="text"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-}
-
-.atlt-dashboard-api-settings a {
-  display: inline-block;
-  font-size: 14px;
-  color: #0073aa;
-  text-decoration: none;
-}
-
-.atlt-dashboard-geminiAPIkey {
-  background-color: #fff;
-  padding: 24px;
-  margin-top: 25px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-}
-.atlt-dashboard-geminiAPIkey ul {
-  border: 3px solid var(--primary-color);
-  padding: 12px 28px;
-  margin-left: 0;
-  width: calc(80% - 5px);
-}
-
-.atlt-dashboard-save-btn-container .button-primary {
-  margin-top: 12px;
-}
-
-/* ================================================
-   Info
+   Info footer 
 ================================================ */
 .atlt-dashboard-info {
   margin-top: 70px;
@@ -776,43 +627,4 @@ button#atlt-refresh-license-btn {
     margin-top: 90px;
     margin-right: 12px;
   }
-}
-
-/* ================================================
-   Feedback
-================================================ */
-.atlt-dashboard-feedback-container {
-  margin: 25px 0px 18px 0px;
-}
-
-.feedback-row {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* space between checkbox and message */
-}
-
-.feedback-row p {
-  margin: 0;
-}
-
-.atlt-openai-model-select,
-.atlt-google-model-select {
-  width: 200px;
-  height: 32px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  vertical-align: middle;
-}
-
-.atlt-dashboard-api-settings .input-group input {
-  width: 60%;
-}
-
-.atlt-dashboard-api-settings .input-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  margin-bottom: 10px;
 }
