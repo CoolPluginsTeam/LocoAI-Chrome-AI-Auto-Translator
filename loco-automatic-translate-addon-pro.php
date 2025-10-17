@@ -58,7 +58,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		
 			 $this->init_ai_translate_service();
 			
-			 $this->init_feedback_notice();
+			
 		}
 
 		/**
@@ -105,8 +105,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				add_action( 'loco_api_ajax', array( $thisPlugin, 'atlt_ajax_init' ), 0, 0 );
 				add_action( 'wp_ajax_save_all_translations', array( $thisPlugin, 'atlt_save_translations_handler' ) );
 				add_action( 'wp_ajax_atlt_cool_plugins_admin_notice', array( $thisPlugin, 'atlt_admin_notice_dismiss' ) );
-				// add_action('wp_ajax_atlt_geminiAI_openAI_ajax_handler', array($thisPlugin, 'atlt_geminiAI_openAI_ajax_handler'));
-
+				
 				/*
 				since version 2.0
 				Yandex translate widget integration
@@ -117,7 +116,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					add_action( 'admin_footer', array( $thisPlugin, 'atlt_load_ytranslate_scripts' ), 100 );
 					add_action( 'admin_footer', array( $thisPlugin, 'atlt_load_gtranslate_scripts' ), 100 );
 					add_filter( 'admin_body_class', array( $thisPlugin, 'atlt_add_custom_class' ) );
-
+// 
 				}
 
 				add_action( 'init', array( $thisPlugin, 'atlt_set_gtranslate_cookie' ) );
@@ -207,56 +206,11 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			return $transient;
 		}
 
-		public function init_feedback_notice() {
-			if (is_admin()) {
-
-				if(!class_exists('CPFM_Feedback_Notice')){
-					require_once ATLT_PRO_PATH . '/admin/feedback/cpfm-common-notice.php';
-					
-				}
-
-				add_action('cpfm_register_notice', function () {
-					// Enhanced capability and class existence checks
-					if (!class_exists('CPFM_Feedback_Notice') || !current_user_can('manage_options')) {
-						// Log unauthorized access attempts in debug mode (without exposing sensitive user data)
-						if (defined('WP_DEBUG') && WP_DEBUG && defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {
-							error_log('ATLT Security Alert: Unauthorized feedback notice registration attempt detected');
-						}
-						return;
-					}
-				
-                $notice = [
-                    'title' => __('Translations Plugins by Cool Plugins', 'ccpw'),
-                    'message' => __('Help us make this plugin more compatible with your site by sharing non-sensitive site data.', 'cool-plugins-feedback'),
-                    'pages' => ['loco-atlt-dashboard'],
-                    'always_show_on' => ['loco-atlt-dashboard'], // This enables auto-show
-                    'plugin_name'=>'atlt'
-                ];
-                CPFM_Feedback_Notice::cpfm_register_notice('cool_translations', $notice);
-                    if (!isset($GLOBALS['cool_plugins_feedback'])) {
-                        $GLOBALS['cool_plugins_feedback'] = [];
-                    }
-                    $GLOBALS['cool_plugins_feedback']['cool_translations'][] = $notice;
-            });
-
-            add_action('cpfm_after_opt_in_atlt', function($category) {
-                if ($category === 'cool_translations') {
-                    ATLT_cronjob::atlt_send_data();
-					$options = get_option('atlt_feedback_opt_in');
-					$options = 'yes';
-					update_option('atlt_feedback_opt_in', $options);	
-                }
-            });
-			}
-		}
 
 		public function init_ai_translate_service() {
 			
 			require_once ATLT_PRO_PATH . 'includes/Helpers/ProHelpers.php';
 				
-		    require_once ATLT_PRO_PATH . 'admin/feedback/cron/atlt-cron.php';
-			$cron = new ATLT_cronjob();
-			$cron->atlt_cron_init_hooks();
 		}
 		
 		/*
@@ -278,151 +232,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		*/
 
 
-		function atlt_geminiAI_openAI_ajax_handler() {
-			check_ajax_referer('loco-addon-nonces', 'nonce');
-
-			// Validate the source_data input
-			if (!isset($_POST['source_data']) || !is_array($_POST['source_data'])) {
-				wp_send_json_error('Invalid request: source_data is missing or not an array.');
-				return;
-			}
-
-			// Validate and sanitize source data
-			if (!isset($_POST['source_data']['source']) || !is_array($_POST['source_data']['source'])) {
-				wp_send_json_error('Invalid request: source data is missing or not an array.');
-				return;
-			}
-
-			if (!isset($_POST['metadata'])) {
-				wp_send_json_error('Invalid request: metadata is missing.');
-				return;
-			}
-
-			$metadata = array();
-			if (is_array($_POST['metadata'])) {
-				$metadata['batchIndex'] = isset($_POST['metadata']['batchIndex']) ? absint($_POST['metadata']['batchIndex']) : 0;
-				$metadata['requestIndex'] = isset($_POST['metadata']['requestIndex']) ? absint($_POST['metadata']['requestIndex']) : 0;
-			}
-
-			// Sanitize source array - each element should be a string
-			$source = array();
-			foreach ($_POST['source_data']['source'] as $key => $value) {
-				$sanitized_key = sanitize_key($key);
-				$sanitized_value = sanitize_text_field(wp_unslash($value));
-				if ($sanitized_key !== '' && $sanitized_value !== '') {
-					$source[$sanitized_key] = $sanitized_value;
-				}
-			}
-
-			if (empty($source)) {
-				wp_send_json_error('Invalid request: no valid source strings found.');
-				return;
-			}
-
-			// Validate and sanitize locale data
-			if (!isset($_POST['source_data']['locale']['label'])) {
-				wp_send_json_error('Invalid request: locale label is missing.');
-				return;
-			}
-			$locale = sanitize_text_field(wp_unslash($_POST['source_data']['locale']['label']));
-			$lang = sanitize_text_field(wp_unslash($_POST['source_data']['locale']['lang']));
-
-			// Validate and sanitize API selection
-			if (!isset($_POST['source_data']['selectedApi'])) {
-				wp_send_json_error('Invalid request: selected API is missing.');
-				return;
-			}
-			$selectedApi = sanitize_text_field(wp_unslash($_POST['source_data']['selectedApi']));
-
-			// Validate API selection against allowed values
-			$allowed_apis = array('openai', 'google', 'deepl');
-			if (!in_array($selectedApi, $allowed_apis, true)) {
-				wp_send_json_error('Invalid request: unsupported API selected.');
-				return;
-			}
-
-			// Get the selected model based on API type
-			$selectedModel = '';
-			if ($selectedApi === 'openai') {
-				$selectedModel = get_option('atlt_selected_openai_model', '');
-			} elseif ($selectedApi === 'google') {
-				$selectedModel = get_option('atlt_selected_google_model', '');
-			}
-
-			if ($selectedApi === 'deepl') {
-				$textArray = array_values($source);
-				
-				if (!empty($textArray[0])) {
-					$textArray[0] = rtrim($textArray[0], '.') . '.';
-				}
-
-				$data = array();
-				$data['text'] = $textArray;
-				$data['target_lang'] = $lang;
-
-				$content = json_encode($data);
-			} else {
-				$content = sprintf(
-					'Instruction 1: [%%s, %%d, %%S, %%D, %%s, %%S, %%d, %%D, %%س] These placeholders are special and should not be translated. 
-					Instruction 2: Avoid repeating translations and skip any strings if necessary. If a string is skipped, maintain its original key. 
-					Instruction 3: The translation in the format of a JSON object with the keys being numeric values (matching the source keys), and the values being the translated strings. 
-					Instruction 4: Use "\\" to escape special characters like \" and " to ensure valid JSON format. 
-					Instruction 5: Translate the provided JSON array into %s language, regardless of whether the values are the same. Ensure the JSON is well-formed and complete. Please ensure that the output follows the format: {"key(numeric value)": "(translations of the strings in %s language)"} Strings are :- %s',
-					$locale,
-					$locale,
-					json_encode($source)
-				);
-			}
-
-			// Check if the selected API is available
-			if ( loco_automatic_translate_addon_pro_ai_services()->is_service_available($selectedApi) ) {
-				$service = loco_automatic_translate_addon_pro_ai_services()->get_available_service($selectedApi);
-
-				try {
-					// Prepare the model configuration array
-					$modelConfig = array(
-						'feature'      => 'my-test-feature',
-						'capabilities' => array( AI_Capability::TEXT_GENERATION ),
-					);
-					
-					// Only add model parameter if a model is selected
-					if (!empty($selectedModel)) {
-						$modelConfig['model'] = $selectedModel;
-					}
-					
-					$candidates = $service
-						->get_model($modelConfig)
-						->generate_text($content);
-
-					$text = Helpers::get_text_from_contents(
-						Helpers::get_candidate_contents( $candidates )
-					);
-
-					$cleanText = preg_replace('/(^```json\n|```$)/', '', $text);
-				
-					$decodedData = json_decode($cleanText, true);
-					
-					$response = array(
-						'data' => $decodedData,
-						'metadata' => $metadata
-					);
-					
-					wp_send_json_success($response);
-
-				} catch ( Exception $e ) {
-					wp_send_json_error('Error during text generation: ' . $e->getMessage());
-				}
-			} else {
-				wp_send_json_error(sprintf(
-					'%s service is not available.',
-					$selectedApi === 'google'
-						? 'GeminiAI'
-						: ($selectedApi === 'deepl'
-							? 'DeepL'
-							: ucfirst($selectedApi))
-				));
-			}
-		}
+		
 
 		
 		
@@ -657,24 +467,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					'target_language'      => isset( $translationData['target_language'] ) ? sanitize_text_field( $translationData['target_language'] ) : '',
 				);
 		
-				// if ( class_exists( 'Atlt_Dashboard' ) ) {
-					// Atlt_Dashboard::store_options(
-					// 	'atlt',
-					// 	'plugins_themes',
-					// 	'update',
-					// 	array(
-					// 		'plugins_themes'   => $metadata['pluginORthemeName'],
-					// 		'service_provider' => $metadata['translation_provider'],
-					// 		'source_language'  => 'en',
-					// 		'target_language'  => $metadata['target_language'],
-					// 		'time_taken'       => $metadata['time_taken'],
-					// 		'string_count'     => $metadata['string_count'],
-					// 		'character_count'  => $metadata['character_count'],
-					// 		'date_time'        => date( 'Y-m-d H:i:s' ),
-					// 		'version_type'     => 'pro',
-					// 	)
-					// );
-				// }
+				
 			}
 		
 			$rs = set_transient( $projectId, $dataToStore, 5 * MINUTE_IN_SECONDS );
@@ -998,14 +791,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				$ratingDiv = get_option('atlt-pro-ratingDiv', 'no');
 				$alreadyRated = get_option('atlt-already-rated', 'no');
 	
-				// Check if the user has already rated
-				// if ($ratingDiv !== 'yes' && $alreadyRated !== 'yes' && class_exists('Atlt_Dashboard')) {
-					// Atlt_Dashboard::review_notice(
-					// 	'atlt', 
-					// 	'LocoAI – Auto Translate for Loco Translate (Pro)', 
-					// 	'https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post',
-					// );
-				// }
+				
 			}
 
 		/*
@@ -1036,11 +822,11 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 						'all'
 					);
 					// load yandex widget
-					wp_register_script( 'atlt-yandex-widget', ATLT_PRO_URL . 'assets/js/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=false', array( 'loco-translate-admin' ), ATLT_PRO_VERSION, true );
+					// wp_register_script( 'atlt-yandex-widget', ATLT_PRO_URL . 'assets/js/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=false', array( 'loco-translate-admin' ), ATLT_PRO_VERSION, true );
 
 						wp_enqueue_script( 'loco-addon-custom' );
 						wp_enqueue_script( 'atlt-chrome-ai-translator-for-loco' );
-						wp_enqueue_script( 'atlt-yandex-widget' );
+						// wp_enqueue_script( 'atlt-yandex-widget' );
 						wp_enqueue_style( 'loco-addon-custom-css' );
 
 						$key = trim( ProHelpers::getLicenseKey() );
@@ -1155,13 +941,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 					}
 				}
 			}
-			if(!get_option('atlt-pro-install-date')) {
-				add_option('atlt-pro-install-date', gmdate('Y-m-d h:i:s'));
-			}
-
-			if (!get_option('atlt_pro_initial_save_version')) {
-				add_option('atlt_pro_initial_save_version', ATLT_PRO_VERSION);
-			}
+			
 		}
 		/*
 		|-------------------------------------------------------
@@ -1169,8 +949,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		|-------------------------------------------------------
 		*/
 		public function atlt_deactivate() {
-			 wp_clear_scheduled_hook('atlt_extra_data_update');
-
+			
 		}
 
 		/**
