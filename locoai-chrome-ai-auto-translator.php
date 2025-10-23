@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name:LocoAI – Chrome AI Auto Translator
-Description: Auto translation addon for Loco Translate – translate plugin & theme strings using AI tools like Chrome AI (Translator API: https://developer.chrome.com/docs/ai/translator-api).
+Description:Auto translation addon for Loco Translate – translate plugin & theme strings using AI tools like Chrome AI.
 Version:1.0.0
 License:GPLv3
 Text Domain:loco-translate-addon
 Domain Path:languages
 Author:Cool Plugins
 Requires Plugins: loco-translate
-Author URI:https://coolplugins.net/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list
+Plugin URI: https://github.com/CoolPluginsTeam/LocoAI-Chrome-AI-Auto-Translator
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
