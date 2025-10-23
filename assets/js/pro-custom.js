@@ -491,13 +491,16 @@ const AutoTranslator = (function (window, $) {
         const icons = {
 
             chrome: extradata['chromeAi_preview'],
-
+            docs: extradata['document_preview'],
             error: extradata['error_preview']
         };
+
+
 
         const url = 'https://locoaddon.com/docs/';
         const ATLT_IMG = (key) => ATLT_URL + 'assets/images/' + icons[key];
         const DOC_ICON_IMG = `<img src="${ATLT_IMG('docs')}" width="20" alt="Docs">`;
+
 
 
         const rows = [
@@ -506,7 +509,7 @@ const AutoTranslator = (function (window, $) {
                 name: 'Chrome Built-in AI',
                 icon: 'chrome',
                 info: 'https://developer.chrome.com/docs/ai/translator-api',
-                doc: `${url}how-to-use-chrome-ai-auto-translations/?utm_source=atlt_plugin&utm_medium=inside&utm_campaign=docs&utm_content=popup_chrome_pro`,
+                doc: `https://developer.chrome.com/docs/ai/translator-api`,
                 btn: `
                     <button id="ChromeAiTranslator_settings_btn" class="atlt-provider-btn translate">Translate</button>
                     <button id="atlt-chromeai-disabled-message" class="atlt-provider-btn error d-none">
@@ -527,6 +530,9 @@ const AutoTranslator = (function (window, $) {
                     ${row.name}
                 </td>
                 <td>${row.btn}</td>
+                 <td>
+                    <a href="${row.doc}" target="_blank" class="atlt-provider-docs-btn">${DOC_ICON_IMG}</a>
+                </td>
                
             </tr>
         `).join('');
@@ -535,7 +541,7 @@ const AutoTranslator = (function (window, $) {
             <div class="atlt-provider-modal" id="atlt-dialog" title="Step 2 - Select Translation Provider" style="display:none;">
                 <table class="atlt-provider-table">
                     <thead>
-                        <tr><th>Name</th><th>Translate</th></tr>
+                        <tr><th>Name</th><th>Translate</th><th>Docs</th></tr>
                     </thead>
                     <tbody>${rowHTML}</tbody>
                 </table>

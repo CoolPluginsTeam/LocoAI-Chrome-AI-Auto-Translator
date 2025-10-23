@@ -294,7 +294,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 				$extraData['preloader_path']  = 'preloader.gif';
 				$extraData['chromeAi_preview']      = 'chrome.png';
 				$extraData['error_preview']    = 'error-icon.svg';
-
+				$extraData['document_preview'] = 'document.svg';
 				$extraData['extra_class']= is_rtl() ? 'atlt-rtl' : '';
 				wp_localize_script( 'loco-addon-custom', 'extradata', $extraData );
 				wp_add_inline_script(
