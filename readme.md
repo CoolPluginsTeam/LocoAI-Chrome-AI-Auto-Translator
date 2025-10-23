@@ -10,7 +10,6 @@
 ## 📋 Table of Contents
 
 - [Overview](#overview)  
-- [Demo](#demo)  
 - [Features](#features)  
 - [Pro Features](#pro-features)  
 - [Installation](#installation)  
@@ -25,14 +24,6 @@
 ## Overview
 
 LocoAI – Chrome AI Auto Translator enhances translation capabilities by using Chrome Translator API. Instantly translate plugin and theme strings without any API keys. This plugin provides a seamless experience for developers and website owners looking to translate their WordPress content efficiently using local AI models.
-
-## Demo
-
-🎥 **Watch the Quick Demo** – see how easy it is to translate your WordPress content:
-
-[![LocoAI Chrome AI Auto Translator Demo](https://img.youtube.com/vi/demo-video-id/0.jpg)](https://youtu.be/demo-video-id "LocoAI Chrome AI Auto Translator Demo")
-
-🔗 **Live Plugin Demo** – [View on CoolPlugins.net](https://coolplugins.net/product/locoai-chrome-ai-auto-translator/?utm_source=locoai_plugin&utm_medium=github&utm_campaign=demo&utm_content=view-demo)
 
 ## Features
 
