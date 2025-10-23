@@ -274,12 +274,12 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 			}
 			if (( isset( $_REQUEST['action'] ) && sanitize_key( wp_unslash( $_REQUEST['action'] ) ) === 'file-edit' ) ) {
 			
-				wp_register_script( 'loco-addon-custom', ATLT_PRO_URL . 'assets/js/pro-custom.js', array( 'loco-translate-admin' ), ATLT_PRO_VERSION, true );
+				wp_register_script( 'loco-addon-custom', ATLT_PRO_URL . 'assets/js/pro-custom.min.js', array( 'loco-translate-admin' ), ATLT_PRO_VERSION, true );
 				wp_register_script( 'atlt-chrome-ai-translator-for-loco', ATLT_PRO_URL . 'assets/js/chrome-ai-translator.min.js', array( 'loco-addon-custom' ), ATLT_PRO_VERSION, true );
 				
 				wp_register_style(
 						'loco-addon-custom-css',
-						ATLT_PRO_URL . 'assets/css/custom.css',
+						ATLT_PRO_URL . 'assets/css/custom.min.css',
 						null,
 						ATLT_PRO_VERSION,
 						'all'
