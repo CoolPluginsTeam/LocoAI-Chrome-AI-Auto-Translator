@@ -407,7 +407,6 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   border: 6px solid #5cb85c;
 }
 
-
 /* progress-bar */
 .progress-container {
   width: 60%;
@@ -464,8 +463,6 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   display: none;
 }
 
-
-
 /* Merge Translations Loading Overlay */
 html.merge-translations:before {
   content: "Merging Translations.....";
@@ -488,4 +485,53 @@ html.merge-translations:before {
   box-shadow: none !important;
   text-shadow: none !important;
   cursor: default;
+}
+div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error img {
+  margin-bottom: 0;
+  margin-top: 0;
+  filter: invert(1) brightness(2);
+  height: 22px !important;
+  margin-right: 3px;
+  width: unset !important;
+}
+div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ee4237;
+  border-color: #dd362b;
+  color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .ui-dialog-titlebar {
+    font-size: 15px;
+    line-height: 2.5;
+  }
+
+  .copy-button {
+    padding: 3px 5px !important;
+    min-height: 20px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+button.atlt-error-reload-btn {
+  background: #0073aa;
+  color: #fff !important;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+  .ui-dialog-content
+  ol
+  li {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+  .ui-widget-header {
+  padding: 8px 36px 10px 16px;
 }
