@@ -228,6 +228,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   line-height: 22px;
 }
 .atlt_custom_model .modal-header .close {
+  cursor: pointer;
   color: #fff;
   font-size: 28px;
   font-weight: 700;
