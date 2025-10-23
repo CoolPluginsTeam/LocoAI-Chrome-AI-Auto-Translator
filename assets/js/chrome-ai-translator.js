@@ -54,10 +54,10 @@ class ChromeAiTranslator {
      * @returns {Promise<boolean|jQuery>} - Returns true if the languages are supported, or a jQuery message if not.
      */
     static languageSupportedStatus = async (sourceLanguage, targetLanguage, targetLanguageLabel, sourceLanguageLabel) => {
-        const supportedLanguages = ['en', 'es', 'ja', 'ar', 'de', 'bn', 'fr', 'hi', 'it', 'ko', 'nl', 'pl', 'pt', 'ru', 'th', 'tr', 'vi', 'zh', 'zh-hant', 'bg', 'cs', 'da', 'el', 'fi', 'hr', 'hu', 'id', 'iw', 'lt', 'no', 'ro', 'sk', 'sl', 'sv', 'uk','kn','ta','te','mr' ].map(lang => lang.toLowerCase());
+        const supportedLanguages = ['en', 'es', 'ja', 'ar', 'de', 'bn', 'fr', 'hi', 'it', 'ko', 'nl', 'pl', 'pt', 'ru', 'th', 'tr', 'vi', 'zh', 'zh-hant', 'bg', 'cs', 'da', 'el', 'fi', 'hr', 'hu', 'id', 'iw', 'lt', 'no', 'ro', 'sk', 'sl', 'sv', 'uk', 'kn', 'ta', 'te', 'mr'].map(lang => lang.toLowerCase());
 
         const safeBrowser = window.location.protocol === 'https:';
-        const browserContentSecure=window.isSecureContext;
+        const browserContentSecure = window.isSecureContext;
 
         // Browser check
         if (!window.hasOwnProperty('chrome') || !navigator.userAgent.includes('Chrome') || navigator.userAgent.includes('Edg')) {
@@ -75,7 +75,7 @@ class ChromeAiTranslator {
             return message;
         }
 
-        if (!('translation' in self && 'createTranslator' in self.translation) && !('ai' in self && 'translator' in self.ai ) && !("Translator" in self && "create" in self.Translator) && !safeBrowser && !browserContentSecure) {
+        if (!('translation' in self && 'createTranslator' in self.translation) && !('ai' in self && 'translator' in self.ai) && !("Translator" in self && "create" in self.Translator) && !safeBrowser && !browserContentSecure) {
             const message = jQuery(`<span style="color: #ff4646; display: inline-block;">
                 <strong>Important Notice:</strong>
                 <ol>
@@ -100,7 +100,7 @@ class ChromeAiTranslator {
         }
 
         // Check if the translation API is available
-        if (!('translation' in self && 'createTranslator' in self.translation) && !('ai' in self && 'translator' in self.ai ) && !("Translator" in self && "create" in self.Translator)) {
+        if (!('translation' in self && 'createTranslator' in self.translation) && !('ai' in self && 'translator' in self.ai) && !("Translator" in self && "create" in self.Translator)) {
             const message = jQuery(`<span style="color: #ff4646; display: inline-block;">
                 <h4>Steps to Enable the Translator AI Modal:</h4>
                 <ol>
@@ -249,7 +249,7 @@ class ChromeAiTranslator {
         return true;
     }
 
-    static languagePairAvality=async (source, target)=>{
+    static languagePairAvality = async (source, target) => {
 
         try {
             const translator = await self.Translator.create({
@@ -264,19 +264,19 @@ class ChromeAiTranslator {
 
         } catch (err) { console.log('err', err) }
 
-        if(('translation' in self && 'createTranslator' in self.translation)){
+        if (('translation' in self && 'createTranslator' in self.translation)) {
             const status = await self.translation.canTranslate({
                 sourceLanguage: source,
                 targetLanguage: target,
             });
 
             return status;
-        }else if(('ai' in self && 'translator' in self.ai )){
+        } else if (('ai' in self && 'translator' in self.ai)) {
             const translatorCapabilities = await self.ai.translator.capabilities();
             const status = await translatorCapabilities.languagePairAvailable(source, target);
 
             return status;
-        }else if("Translator" in self && "create" in self.Translator){
+        } else if ("Translator" in self && "create" in self.Translator) {
             const status = await self.Translator.availability({
                 sourceLanguage: source,
                 targetLanguage: target,
@@ -288,22 +288,22 @@ class ChromeAiTranslator {
         return false;
     }
 
-    AITranslator=async (targetLanguage)=>{
-        if(('translation' in self && 'createTranslator' in self.translation)){
-            const translator=await self.translation.createTranslator({
+    AITranslator = async (targetLanguage) => {
+        if (('translation' in self && 'createTranslator' in self.translation)) {
+            const translator = await self.translation.createTranslator({
                 sourceLanguage: this.sourceLanguage,
                 targetLanguage,
             });
 
             return translator;
-        }else if(('ai' in self && 'translator' in self.ai )){
+        } else if (('ai' in self && 'translator' in self.ai)) {
             const translator = await self.ai.translator.create({
                 sourceLanguage: this.sourceLanguage,
                 targetLanguage,
-              });
+            });
 
             return translator;
-        }else if("Translator" in self && "create" in self.Translator){
+        } else if ("Translator" in self && "create" in self.Translator) {
             const translator = await self.Translator.create({
                 sourceLanguage: this.sourceLanguage,
                 targetLanguage,
@@ -499,58 +499,16 @@ class ChromeAiTranslator {
         this.startTranslationProcess(this.completedTranslateIndex + 1); // Start translation process
     }
 
-    
-    static svgIcons=(iconName)=>{
-        const Icons={
-            'copy':`<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" fill="#2271b1"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg>`
+
+    static svgIcons = (iconName) => {
+        const Icons = {
+            'copy': `<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="16px" width="16px" xmlns="http://www.w3.org/2000/svg" fill="#2271b1"><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"></path></svg>`
         }
 
         return Icons[iconName] || '';
     }
 }
 
-/*
- * Example Usage of the ChromeAiTranslator.init method.
- * This method initializes the Chrome AI Translator with a comprehensive set of configuration options to facilitate the translation process.
- * 
- * Configuration Options:
- * 
- * - mainWrapperSelector: A CSS selector for the main wrapper element that encapsulates all translation-related elements.
- * - btnSelector: A CSS selector for the button that initiates the translation process.
- * - btnClass: A custom class for styling the translation button.
- * - btnText: The text displayed on the translation button.
- * - stringSelector: A CSS selector for the elements that contain the strings intended for translation.
- * - progressBarSelector: A CSS selector for the progress bar element that visually represents the translation progress.
- * - sourceLanguage: The language code representing the source language (e.g., "es" for Spanish).
- * - targetLanguage: The language code representing the target language (e.g., "fr" for French).
- * - onStartTranslationProcess: A callback function that is executed when the translation process begins.
- * - onBeforeTranslate: A callback function that is executed prior to each individual translation.
- * - onAfterTranslate: A callback function that is executed following each translation.
- * - onComplete: A callback function that is executed upon the completion of the translation process.
- * - onLanguageError: A callback function that is executed when a language-related error occurs.
- */
-
-// Example for checking language support status
-// ChromeAiTranslator.languageSupportedStatus("en", "fr", "French");
-
-// const chromeAiTranslatorObject = ChromeAiTranslator.Object(
-//     {
-//         mainWrapperSelector: ".main-wrapper", // CSS selector for the main wrapper element
-//         btnSelector: ".translator-container .translator-button", // CSS selector for the translation button
-//         btnClass: "Btn_custom_class", // Custom class for button styling
-//         btnText: "Translate To French", // Text displayed on the translation button
-//         stringSelector: ".translator-body .translation-item", // CSS selector for translation string elements
-//         progressBarSelector: ".translator-progress-bar", // CSS selector for the progress bar
-//         sourceLanguage: "es", // Language code for the source language
-//         targetLanguage: "fr", // Language code for the target language
-//         onStartTranslationProcess: () => { console.log("Translation process started."); }, // Callback for translation start
-//         onBeforeTranslate: () => { console.log("Before translation."); }, // Callback before each translation
-//         onAfterTranslate: () => { console.log("After translation."); }, // Callback after each translation
-//         onComplete: () => { console.log("Translation completed."); }, // Callback for completion
-//         onLanguageError: () => { console.error("Language error occurred."); } // Callback for language errors
-//     }
-// );
-// chromeAiTranslatorObject.init();
 
 
 // Call ChromeAiTranslator Object and start translation
@@ -575,17 +533,17 @@ class ChromeAiTranslator {
             }
         );
 
-        if(!TranslatorObject.hasOwnProperty('init')) return;
+        if (!TranslatorObject.hasOwnProperty('init')) return;
 
         jQuery(document).on("click", "#ChromeAiTranslator_settings_btn", function () {
             const stringsToTranslate = jQuery("#ChromeAiTranslator-widget-model .atlt_string_container table tbody tr td.target.translate");
             if (!transalationInitialize && typeof TranslatorObject.init === 'function') {
-                if(stringsToTranslate.length > 0){
+                if (stringsToTranslate.length > 0) {
                     transalationInitialize = true;
                     TranslatorObject.init();
                 }
             } else if (typeof TranslatorObject.reInit === 'function') {
-                if(stringsToTranslate.length > 0){
+                if (stringsToTranslate.length > 0) {
                     TranslatorObject.reInit();
                 }
             }
@@ -596,7 +554,7 @@ class ChromeAiTranslator {
                 TranslatorObject.stopTranslation();
             }
         });
-        
+
         jQuery(document).on("click", ".ChromeAiTranslator-widget-header .close", () => {
             TranslatorObject.stopTranslation();
         });
@@ -613,27 +571,27 @@ class ChromeAiTranslator {
     const onStopTranslation = () => {
         jQuery("#ChromeAiTranslator-widget-model .atlt_translate_progress").fadeOut("slow");
     }
-    
+
     const beforeTranslate = (ele) => {
         const stringContainer = jQuery("#ChromeAiTranslator-widget-model .modal-content .atlt_string_container");
-    
+
         const scrollStringContainer = (position) => {
             stringContainer.scrollTop(position);
         };
-    
+
         const stringContainerPosition = stringContainer[0].getBoundingClientRect();
-    
+
         const eleTopPosition = ele.closest("tr").offsetTop;
         const containerHeight = stringContainer.height();
-    
+
         if (eleTopPosition > (containerHeight + stringContainerPosition.y)) {
             scrollStringContainer(eleTopPosition - containerHeight + ele.offsetHeight);
         }
     }
-    
+
     const completeTranslation = (data) => {
         const totalTime = Math.round((Date.now() - startTime) / 1000); // Calculate time in seconds    
-        
+
         jQuery("#ChromeAiTranslator-widget-model .atlt_stats").fadeIn("slow");
         const container = jQuery("#ChromeAiTranslator-widget-model");
         container.data('translation-time', totalTime);
@@ -649,29 +607,29 @@ class ChromeAiTranslator {
             e.preventDefault();
             const dialog = "#atlt-dialog";
             jQuery(dialog).dialog("instance") && jQuery(dialog).dialog('close');
-            
+
             const statusDialog = jQuery("#atlt-chromeai-disabled-message-content").html(msg);
 
             initializeClipboard();
-            
+
             statusDialog.dialog(statusDialog.dialog("instance") ? "open" : {
                 title: 'Chrome AI Translator Status',
                 modal: true,
                 width: 500,
                 draggable: false,
                 closeOnEscape: true,
-                buttons: { Cancel: function() { jQuery(this).dialog('close'); } },
-                close: function() { jQuery(this).dialog('destroy'); }
+                buttons: { Cancel: function () { jQuery(this).dialog('close'); } },
+                close: function () { jQuery(this).dialog('destroy'); }
             });
         });
     };
 
     function initializeClipboard() {
         const clipboardElements = document.querySelectorAll('.chrome-ai-translator-flags');
-        
+
         const copyClipboard = async (text, startCopyStatus, endCopyStatus) => {
             if (!text || text === "") return;
-            
+
             try {
                 if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
                     await navigator.clipboard.writeText(text);
@@ -694,30 +652,30 @@ class ChromeAiTranslator {
                     }
                     document.body.removeChild(div); // Clean up the temporary div
                 }
-                
+
                 startCopyStatus();
                 setTimeout(endCopyStatus, 800);
             } catch (err) {
                 console.error('Error copying text to clipboard:', err);
             }
         };
-    
+
         clipboardElements.forEach(element => {
             element.classList.add('atlt-tooltip-element');
-            
+
             element.addEventListener('click', (e) => {
                 e.preventDefault();
-                
+
                 const toolTipExists = element.querySelector('.atlt-tooltip');
                 if (toolTipExists) {
                     return;
                 }
-                
+
                 const toolTipElement = document.createElement('span');
                 toolTipElement.textContent = "Text to be copied.";
                 toolTipElement.className = 'atlt-tooltip';
                 element.appendChild(toolTipElement);
-                
+
                 copyClipboard(
                     element.getAttribute('data-clipboard-text'),
                     () => {
@@ -731,7 +689,7 @@ class ChromeAiTranslator {
                 );
             });
         });
-      }
+    }
 
     const languageError = msg => {
         jQuery("#ChromeAiTranslator_settings_btn").hide();
