@@ -491,13 +491,14 @@ const AutoTranslator = (function (window, $) {
         const icons = {
 
             chrome: extradata['chromeAi_preview'],
-            docs: extradata['document_preview'],
+
             error: extradata['error_preview']
         };
 
         const url = 'https://locoaddon.com/docs/';
         const ATLT_IMG = (key) => ATLT_URL + 'assets/images/' + icons[key];
         const DOC_ICON_IMG = `<img src="${ATLT_IMG('docs')}" width="20" alt="Docs">`;
+
 
         const rows = [
 
@@ -526,9 +527,7 @@ const AutoTranslator = (function (window, $) {
                     ${row.name}
                 </td>
                 <td>${row.btn}</td>
-                <td>
-                    <a href="${row.doc}" target="_blank" class="atlt-provider-docs-btn">${DOC_ICON_IMG}</a>
-                </td>
+               
             </tr>
         `).join('');
 
@@ -536,7 +535,7 @@ const AutoTranslator = (function (window, $) {
             <div class="atlt-provider-modal" id="atlt-dialog" title="Step 2 - Select Translation Provider" style="display:none;">
                 <table class="atlt-provider-table">
                     <thead>
-                        <tr><th>Name</th><th>Translate</th><th>Docs</th></tr>
+                        <tr><th>Name</th><th>Translate</th></tr>
                     </thead>
                     <tbody>${rowHTML}</tbody>
                 </table>
@@ -658,9 +657,9 @@ const AutoTranslator = (function (window, $) {
                             Wahooo! You have saved your valuable time via auto translating 
                             <strong class="totalChars"></strong> characters  using 
                             <strong>
-                                <a href="https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post" target="_new">
-                                    LocoAI – Auto Translate for Loco Translate (Pro)
-                                </a>
+                                
+                                    LocoAI – Chrome AI Auto Translator
+                               
                             </strong>
                         </div>
                     </div>
@@ -680,9 +679,9 @@ const AutoTranslator = (function (window, $) {
             Wahooo! You have saved your valuable time via auto translating 
             <strong class="totalChars"></strong> characters  using 
             <strong>
-                <a href="https://wordpress.org/support/plugin/automatic-translator-addon-for-loco-translate/reviews/#new-post" target="_new">
-                    LocoAI – Auto Translate for Loco Translate (Pro)
-                </a>
+               
+                   LocoAI – Chrome AI Auto Translator
+              
             </strong>
         </div>
     </div>`;
