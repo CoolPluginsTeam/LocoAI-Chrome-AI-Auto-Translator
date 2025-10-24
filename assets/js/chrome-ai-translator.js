@@ -69,7 +69,7 @@ class ChromeAiTranslator {
                 </ol>
                 <p>Please ensure you are using the Chrome browser for optimal performance and compatibility.</p>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -93,7 +93,7 @@ class ChromeAiTranslator {
                     </li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -113,7 +113,7 @@ class ChromeAiTranslator {
                 <p>If the issue persists, please ensure that your browser is up to date and restart your browser.</p>
                 <p>If you continue to experience issues after following the above steps, please <a href="https://my.coolplugins.net/account/support-tickets/" target="_blank" rel="noopener">open a support ticket</a> with our team. We are here to help you resolve any problems and ensure a smooth translation experience.</p>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
                 </span>`);
             return message;
@@ -129,7 +129,7 @@ class ChromeAiTranslator {
                     <li>Ensure your Chrome browser is updated to the latest version for optimal performance.</li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -145,7 +145,7 @@ class ChromeAiTranslator {
                     <li>Ensure your Chrome browser is updated to the latest version for optimal performance.</li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -183,7 +183,7 @@ class ChromeAiTranslator {
                     <li>For more help, refer to the <a href="https://developer.chrome.com/docs/ai/translator-api#supported-languages" target="_blank">documentation to check supported languages</a>.</li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -221,10 +221,10 @@ class ChromeAiTranslator {
                     </li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -240,7 +240,7 @@ class ChromeAiTranslator {
                     <li>If you encounter any issues, please refer to the <a href="https://developer.chrome.com/docs/ai/translator-api#supported-languages" target="_blank">documentation to check supported languages</a> for further assistance.</li>
                 </ol>
                 <div style="text-align: right;">
-                    <button onclick="location.reload()" class="atlt-error-reload-btn">Reload Page</button>
+                    <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
             </span>`);
             return message;
@@ -520,8 +520,8 @@ class ChromeAiTranslator {
             {
                 mainWrapperSelector: "#ChromeAiTranslator-widget-model",
                 btnSelector: "#ChromeAiTranslator-widget-model #chrome_ai_translator_element",
-                stringSelector: "#ChromeAiTranslator-widget-model .atlt_string_container table tbody tr td.target.translate",
-                progressBarSelector: "#ChromeAiTranslator-widget-model .atlt_translate_progress",
+                stringSelector: "#ChromeAiTranslator-widget-model .lcat_string_container table tbody tr td.target.translate",
+                progressBarSelector: "#ChromeAiTranslator-widget-model .lcat_translate_progress",
                 sourceLanguage: "en",
                 targetLanguage: locoConf.conf.locale.lang,
                 targetLanguageLabel: locoConf.conf.locale.label,
@@ -536,7 +536,7 @@ class ChromeAiTranslator {
         if (!TranslatorObject.hasOwnProperty('init')) return;
 
         jQuery(document).on("click", "#ChromeAiTranslator_settings_btn", function () {
-            const stringsToTranslate = jQuery("#ChromeAiTranslator-widget-model .atlt_string_container table tbody tr td.target.translate");
+            const stringsToTranslate = jQuery("#ChromeAiTranslator-widget-model .lcat_string_container table tbody tr td.target.translate");
             if (!transalationInitialize && typeof TranslatorObject.init === 'function') {
                 if (stringsToTranslate.length > 0) {
                     transalationInitialize = true;
@@ -550,7 +550,7 @@ class ChromeAiTranslator {
         });
 
         jQuery(window).on("click", (event) => {
-            if (!event.target.closest(".modal-content") && !event.target.closest("#atlt-dialog")) {
+            if (!event.target.closest(".modal-content") && !event.target.closest("#lcat-dialog")) {
                 TranslatorObject.stopTranslation();
             }
         });
@@ -562,18 +562,18 @@ class ChromeAiTranslator {
 
     const startTransaltion = () => {
         startTime = Date.now();
-        const stringContainer = jQuery("#ChromeAiTranslator-widget-model .modal-content .atlt_string_container");
+        const stringContainer = jQuery("#ChromeAiTranslator-widget-model .modal-content .lcat_string_container");
         if (stringContainer[0].scrollHeight > 100) {
-            jQuery("#ChromeAiTranslator-widget-model .atlt_translate_progress").fadeIn("slow");
+            jQuery("#ChromeAiTranslator-widget-model .lcat_translate_progress").fadeIn("slow");
         }
     }
 
     const onStopTranslation = () => {
-        jQuery("#ChromeAiTranslator-widget-model .atlt_translate_progress").fadeOut("slow");
+        jQuery("#ChromeAiTranslator-widget-model .lcat_translate_progress").fadeOut("slow");
     }
 
     const beforeTranslate = (ele) => {
-        const stringContainer = jQuery("#ChromeAiTranslator-widget-model .modal-content .atlt_string_container");
+        const stringContainer = jQuery("#ChromeAiTranslator-widget-model .modal-content .lcat_string_container");
 
         const scrollStringContainer = (position) => {
             stringContainer.scrollTop(position);
@@ -592,23 +592,23 @@ class ChromeAiTranslator {
     const completeTranslation = (data) => {
         const totalTime = Math.round((Date.now() - startTime) / 1000); // Calculate time in seconds    
 
-        jQuery("#ChromeAiTranslator-widget-model .atlt_stats").fadeIn("slow");
+        jQuery("#ChromeAiTranslator-widget-model .lcat_stats").fadeIn("slow");
         const container = jQuery("#ChromeAiTranslator-widget-model");
         container.data('translation-time', totalTime);
         container.data('translation-provider', 'chrome-ai');
         setTimeout(() => {
-            jQuery("#ChromeAiTranslator-widget-model .atlt_save_strings").prop("disabled", false);
-            jQuery("#ChromeAiTranslator-widget-model .atlt_translate_progress").fadeOut("slow");
+            jQuery("#ChromeAiTranslator-widget-model .lcat_save_strings").prop("disabled", false);
+            jQuery("#ChromeAiTranslator-widget-model .lcat_translate_progress").fadeOut("slow");
         }, 2500);
     }
 
     const handleDisabledMessage = msg => {
-        jQuery('#atlt-chromeai-disabled-message').on('click', e => {
+        jQuery('#lcat-chromeai-disabled-message').on('click', e => {
             e.preventDefault();
-            const dialog = "#atlt-dialog";
+            const dialog = "#lcat-dialog";
             jQuery(dialog).dialog("instance") && jQuery(dialog).dialog('close');
 
-            const statusDialog = jQuery("#atlt-chromeai-disabled-message-content").html(msg);
+            const statusDialog = jQuery("#lcat-chromeai-disabled-message-content").html(msg);
 
             initializeClipboard();
 
@@ -661,25 +661,25 @@ class ChromeAiTranslator {
         };
 
         clipboardElements.forEach(element => {
-            element.classList.add('atlt-tooltip-element');
+            element.classList.add('lcat-tooltip-element');
 
             element.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                const toolTipExists = element.querySelector('.atlt-tooltip');
+                const toolTipExists = element.querySelector('.lcat-tooltip');
                 if (toolTipExists) {
                     return;
                 }
 
                 const toolTipElement = document.createElement('span');
                 toolTipElement.textContent = "Text to be copied.";
-                toolTipElement.className = 'atlt-tooltip';
+                toolTipElement.className = 'lcat-tooltip';
                 element.appendChild(toolTipElement);
 
                 copyClipboard(
                     element.getAttribute('data-clipboard-text'),
                     () => {
-                        toolTipElement.classList.add('atlt-tooltip-active');
+                        toolTipElement.classList.add('lcat-tooltip-active');
                     },
                     () => {
                         setTimeout(() => {
@@ -693,7 +693,7 @@ class ChromeAiTranslator {
 
     const languageError = msg => {
         jQuery("#ChromeAiTranslator_settings_btn").hide();
-        jQuery("#atlt-chromeai-disabled-message").removeClass("d-none").show();
+        jQuery("#lcat-chromeai-disabled-message").removeClass("d-none").show();
         handleDisabledMessage(msg);
     };
 

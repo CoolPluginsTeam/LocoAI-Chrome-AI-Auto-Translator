@@ -4,7 +4,7 @@ const AutoTranslator = (function (window, $) {
     // get plugin configuration object.
     const configData = window.extradata || {};
     let translationPerformed = false;
-    const { ajax_url: ajaxUrl, nonce: nonce, ATLT_URL: ATLT_URL, extra_class: rtlClass, api_key: apikey, dashboard_url: dashboardurl } = configData;
+    const { ajax_url: ajaxUrl, nonce: nonce, LCAT_URL: LCAT_URL, extra_class: rtlClass, api_key: apikey, dashboard_url: dashboardurl } = configData;
     const allStrings = locoConf.conf.podata;
     // Safely access nested properties without optional chaining
     let pluginOrThemeName = '';
@@ -63,7 +63,7 @@ const AutoTranslator = (function (window, $) {
         });
 
         // save string inside cache for later use
-        $(".atlt_save_strings").on("click", onSaveClick);
+        $(".lcat_save_strings").on("click", onSaveClick);
 
     }
 
@@ -76,7 +76,7 @@ const AutoTranslator = (function (window, $) {
             $(".notice-container")
                 .addClass('notice inline notice-warning')
                 .html("There is no plain string available for translations.");
-            $(".atlt_string_container, .choose-lang, .atlt_save_strings, .translator-widget, .notice-info, .is-dismissible").hide();
+            $(".lcat_string_container, .choose-lang, .lcat_save_strings, .translator-widget, .notice-info, .is-dismissible").hide();
         }
     }
 
@@ -118,15 +118,15 @@ const AutoTranslator = (function (window, $) {
         }
 
         let modelContainer = $('div#ChromeAiTranslator-widget-model.ChromeAiTranslator-widget-container');
-        modelContainer.find(".atlt_actions > .atlt_save_strings").prop("disabled", true);
-        modelContainer.find(".atlt_stats").hide();
+        modelContainer.find(".lcat_actions > .lcat_save_strings").prop("disabled", true);
+        modelContainer.find(".lcat_stats").hide();
 
-        $("#atlt-dialog").dialog("close");
+        $("#lcat-dialog").dialog("close");
         modelContainer.fadeIn("slow");
         // modelContainer.find('.notice, .inline, .notice-info, .is-dismissible').show();
 
         if (translationPerformed) {
-            $("#ChromeAiTranslator-widget-model").find(".atlt_save_strings").prop("disabled", false);
+            $("#ChromeAiTranslator-widget-model").find(".lcat_save_strings").prop("disabled", false);
         }
     }
 
@@ -157,7 +157,7 @@ const AutoTranslator = (function (window, $) {
 
         const regex = /(\%\s*\d+\s*\$?\s*[a-z0-9])/gi;
 
-        $("." + type + "-widget-body").find(".atlt_strings_table tbody tr").each(function () {
+        $("." + type + "-widget-body").find(".lcat_strings_table tbody tr").each(function () {
             const source = $(this).find("td.source").text();
             const target = $(this).find("td.target").text();
 
@@ -181,7 +181,7 @@ const AutoTranslator = (function (window, $) {
             });
         });
 
-        const container = $(this).closest('.atlt_custom_model');
+        const container = $(this).closest('.lcat_custom_model');
         const translationProvider = container.data('translation-provider');
         const translationTime = container.data('translation-time');
         const { lang, region } = locoConf.conf.locale;
@@ -198,11 +198,11 @@ const AutoTranslator = (function (window, $) {
             target_language: target_language,
         }
 
-        var projectId = $(this).parents(".atlt_custom_model").find("#project_id").val();
+        var projectId = $(this).parents(".lcat_custom_model").find("#project_id").val();
 
         //  Save Translated Strings
         saveTranslatedStrings(translatedObj, projectId, translationData);
-        $(".atlt_custom_model").fadeOut("slow");
+        $(".lcat_custom_model").fadeOut("slow");
         $("html").addClass("merge-translations");
         updateLocoModel();
     }
@@ -391,7 +391,7 @@ const AutoTranslator = (function (window, $) {
     }
     // open settings model on auto translate button click
     function openSettingsModel() {
-        $("#atlt-dialog").dialog({
+        $("#lcat-dialog").dialog({
             dialogClass: rtlClass,
             resizable: false,
             height: "auto",
@@ -407,8 +407,8 @@ const AutoTranslator = (function (window, $) {
     }
 
     //String Translate Model
-    // Get all elements with the class "atlt_custom_model"
-    var modals = document.querySelectorAll(".atlt_custom_model");
+    // Get all elements with the class "lcat_custom_model"
+    var modals = document.querySelectorAll(".lcat_custom_model");
     // When the user clicks anywhere outside of any modal, close it
     $(window).click(function (event) {
         if (!event.target.closest(".modal-content")) {
@@ -416,7 +416,7 @@ const AutoTranslator = (function (window, $) {
         }
         for (var i = 0; i < modals.length; i++) {
             var modal = modals[i];
-            if ($(event.target).hasClass("atlt_custom_model") && event.target === modal) {
+            if ($(event.target).hasClass("lcat_custom_model") && event.target === modal) {
                 modal.style.display = "none";
                 if ($(".container").length > 0) {
                     $(".container").remove();
@@ -426,13 +426,13 @@ const AutoTranslator = (function (window, $) {
     });
 
     // Get the <span> element that closes the modal
-    $(".atlt_custom_model").find(".close").on("click", function () {
+    $(".lcat_custom_model").find(".close").on("click", function () {
 
         if ($(".container").length > 0) {
             // If it exists, remove it
             $(".container").remove();
         }
-        $(".atlt_custom_model").fadeOut("slow");
+        $(".lcat_custom_model").fadeOut("slow");
 
     });
 
@@ -478,12 +478,12 @@ const AutoTranslator = (function (window, $) {
                 }
             }
 
-            $(".atlt_stats").each(function () {
+            $(".lcat_stats").each(function () {
                 $(this).find(".totalChars").html(totalTChars);
             });
         }
 
-        $("#" + type + '-widget-model').find(".atlt_strings_table > tbody.atlt_strings_body").html(html);
+        $("#" + type + '-widget-model').find(".lcat_strings_table > tbody.lcat_strings_body").html(html);
 
     }
 
@@ -498,8 +498,8 @@ const AutoTranslator = (function (window, $) {
 
 
         const url = 'https://locoaddon.com/docs/';
-        const ATLT_IMG = (key) => ATLT_URL + 'assets/images/' + icons[key];
-        const DOC_ICON_IMG = `<img src="${ATLT_IMG('docs')}" width="20" alt="Docs">`;
+        const LCAT_IMG = (key) => LCAT_URL + 'assets/images/' + icons[key];
+        const DOC_ICON_IMG = `<img src="${LCAT_IMG('docs')}" width="20" alt="Docs">`;
 
 
 
@@ -511,35 +511,35 @@ const AutoTranslator = (function (window, $) {
                 info: 'https://developer.chrome.com/docs/ai/translator-api',
                 doc: `https://developer.chrome.com/docs/ai/translator-api`,
                 btn: `
-                    <button id="ChromeAiTranslator_settings_btn" class="atlt-provider-btn translate">Translate</button>
-                    <button id="atlt-chromeai-disabled-message" class="atlt-provider-btn error d-none">
-                        <img src="${ATLT_IMG('error')}" alt="error" style="height:16px; vertical-align:middle; margin-right:5px;">
+                    <button id="ChromeAiTranslator_settings_btn" class="lcat-provider-btn translate">Translate</button>
+                    <button id="lcat-chromeai-disabled-message" class="lcat-provider-btn error d-none">
+                        <img src="${LCAT_IMG('error')}" alt="error" style="height:16px; vertical-align:middle; margin-right:5px;">
                         View Error
                     </button>
-                    <div id="atlt-chromeai-disabled-message-content" style="display:none;"></div>
+                    <div id="lcat-chromeai-disabled-message-content" style="display:none;"></div>
                 `
             }
         ];
 
         const rowHTML = rows.map(row => `
             <tr>
-                <td class="atlt-provider-name">
+                <td class="lcat-provider-name">
                     <a href="${row.info}" target="_blank">
-                        <img src="${ATLT_IMG(row.icon)}" class="atlt-provider-icon" alt="${row.name}">
+                        <img src="${LCAT_IMG(row.icon)}" class="lcat-provider-icon" alt="${row.name}">
                     </a>
                     ${row.name}
                 </td>
                 <td>${row.btn}</td>
                  <td>
-                    <a href="${row.doc}" target="_blank" class="atlt-provider-docs-btn">${DOC_ICON_IMG}</a>
+                    <a href="${row.doc}" target="_blank" class="lcat-provider-docs-btn">${DOC_ICON_IMG}</a>
                 </td>
                
             </tr>
         `).join('');
 
         const modelHTML = `
-            <div class="atlt-provider-modal" id="atlt-dialog" title="Step 2 - Select Translation Provider" style="display:none;">
-                <table class="atlt-provider-table">
+            <div class="lcat-provider-modal" id="lcat-dialog" title="Step 2 - Select Translation Provider" style="display:none;">
+                <table class="lcat-provider-table">
                     <thead>
                         <tr><th>Name</th><th>Translate</th><th>Docs</th></tr>
                     </thead>
@@ -558,7 +558,7 @@ const AutoTranslator = (function (window, $) {
         let { wrapperCls, headerCls, bodyCls, footerCls, modelId } = getWidgetClasses(widgetType);
 
         let modelHTML = `
-            <div id="${modelId}" class="modal atlt_custom_model  ${wrapperCls} ${rtlClass}">
+            <div id="${modelId}" class="modal lcat_custom_model  ${wrapperCls} ${rtlClass}">
                 <div class="modal-content">
                     <input type="hidden" id="project_id" value="${projectId}"> 
                     ${modelHeaderHTML(widgetType, headerCls)}   
@@ -613,7 +613,7 @@ const AutoTranslator = (function (window, $) {
                         Please verify strings before using on the production website.
                     </div>
         <div class="modal-body  ${bodyCls}">
-            <div class="atlt_translate_progress">
+            <div class="lcat_translate_progress">
                 Automatic translation is in progress....<br/>
                 It will take a few minutes, enjoy ☕ coffee in this time!<br/><br/>
                 Please do not leave this window or browser tab while the translation is in progress...
@@ -626,21 +626,21 @@ const AutoTranslator = (function (window, $) {
                 </div>
             </div>
             </div>
-            <div class="atlt_translate_warning-massage">
+            <div class="lcat_translate_warning-massage">
                 <div class="warning-massage-wrapper">
                      <button class="close-button">&times;</button>
                      <div class="warning-massage-content"></div>
                 </div>
             </div>
             ${translatorWidget(widgetType)}
-            <div class="atlt_string_container">
-                <table class="scrolldown atlt_strings_table">
+            <div class="lcat_string_container">
+                <table class="scrolldown lcat_strings_table">
                     <thead>
                         <th class="notranslate">S.No</th>
                         <th class="notranslate">Source Text</th>
                         <th class="notranslate">Translation</th>
                     </thead>
-                    <tbody class="atlt_strings_body">
+                    <tbody class="lcat_strings_body">
                     </tbody>
                 </table>
             </div>
@@ -656,10 +656,10 @@ const AutoTranslator = (function (window, $) {
         <div class="modal-header  ${headerCls}">
                         <span class="close">&times;</span>
                         <h2 class="notranslate">Step 2 - Start Automatic Translation Process</h2>
-                        <div class="atlt_actions">
-                            <button class="notranslate atlt_save_strings button button-primary" data-type = "${type}" disabled="true">Merge Translation</button>
+                        <div class="lcat_actions">
+                            <button class="notranslate lcat_save_strings button button-primary" data-type = "${type}" disabled="true">Merge Translation</button>
                         </div>
-                        <div style="display:none" class="atlt_stats hidden">
+                        <div style="display:none" class="lcat_stats hidden">
                             Wahooo! You have saved your valuable time via auto translating 
                             <strong class="totalChars"></strong> characters  using 
                             <strong>
@@ -678,10 +678,10 @@ const AutoTranslator = (function (window, $) {
 
         if (widgetType === "ChromeAiTranslator") {
             const HTML = ` <div class="modal-footer ${footerCls}">
-        <div class="atlt_actions">
-            <button class="notranslate atlt_save_strings button button-primary" data-type = "${type}" disabled="true">Merge Translation</button>
+        <div class="lcat_actions">
+            <button class="notranslate lcat_save_strings button button-primary" data-type = "${type}" disabled="true">Merge Translation</button>
         </div>
-        <div style="display:none" class="atlt_stats">
+        <div style="display:none" class="lcat_stats">
             Wahooo! You have saved your valuable time via auto translating 
             <strong class="totalChars"></strong> characters  using 
             <strong>
@@ -701,7 +701,7 @@ const AutoTranslator = (function (window, $) {
     function translatorWidget(widgetType) {
         if (widgetType === "ChromeAiTranslator") {
             return `<div class="translator-widget  ${widgetType}">
-                    <h3 class="choose-lang">Translate Using Chrome Built-in AI<div class="atlt_chrome_ai"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" stroke="#5cb85c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 7l-.516 1.394c-.676 1.828-1.014 2.742-1.681 3.409s-1.581 1.005-3.409 1.681L3 14l1.394.516c1.828.676 2.742 1.015 3.409 1.681s1.005 1.581 1.681 3.409L10 21l.516-1.394c.676-1.828 1.015-2.742 1.681-3.409s1.581-1.005 3.409-1.681L17 14l-1.394-.516c-1.828-.676-2.742-1.014-3.409-1.681s-1.005-1.581-1.681-3.409zm8-4l-.221.597c-.29.784-.435 1.176-.72 1.461c-.286.286-.678.431-1.462.72L15 6l.598.221c.783.29 1.175.435 1.46.72c.286.286.431.678.72 1.462L18 9l.221-.597c.29-.784.435-1.176.72-1.461c.286-.286.678-.431 1.462-.72L21 6l-.598-.221c-.783-.29-1.175-.435-1.46-.72c-.286-.286-.431-.678-.72-1.462z" color="#5cb85c"/></svg></div></h3>
+                    <h3 class="choose-lang">Translate Using Chrome Built-in AI<div class="lcat_chrome_ai"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="none" stroke="#5cb85c" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10 7l-.516 1.394c-.676 1.828-1.014 2.742-1.681 3.409s-1.581 1.005-3.409 1.681L3 14l1.394.516c1.828.676 2.742 1.015 3.409 1.681s1.005 1.581 1.681 3.409L10 21l.516-1.394c.676-1.828 1.015-2.742 1.681-3.409s1.581-1.005 3.409-1.681L17 14l-1.394-.516c-1.828-.676-2.742-1.014-3.409-1.681s-1.005-1.581-1.681-3.409zm8-4l-.221.597c-.29.784-.435 1.176-.72 1.461c-.286.286-.678.431-1.462.72L15 6l.598.221c.783.29 1.175.435 1.46.72c.286.286.431.678.72 1.462L18 9l.221-.597c.29-.784.435-1.176.72-1.461c.286-.286.678-.431 1.462-.72L21 6l-.598-.221c-.783-.29-1.175-.435-1.46-.72c-.286-.286-.431-.678-.72-1.462z" color="#5cb85c"/></svg></div></h3>
                      <div id="chrome_ai_translator_element"></div>
                 </div>`;
         } else {

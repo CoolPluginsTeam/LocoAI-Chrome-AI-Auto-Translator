@@ -18,7 +18,7 @@
   text-align: center;
   border-radius: 0 0 4px 4px;
 }
-.atlt_custom_model .modal-content {
+.lcat_custom_model .modal-content {
   position: relative;
   background-color: #fefefe;
   width: 80%;
@@ -31,16 +31,16 @@
   animation-name: animatetop;
   animation-duration: 0.4s;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] {
+div.ui-dialog[aria-describedby="lcat-dialog"] {
   width: fit-content !important;
   left: 0 !important;
   right: 0 !important;
   margin: auto;
   transform: translate(0, 50%) !important;
 }
-div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+div.ui-dialog[aria-describedby="lcat-chromeai-disabled-message-content"]
   .ui-button.ui-dialog-titlebar-close,
-div.ui-dialog[aria-describedby="atlt-dialog"]
+div.ui-dialog[aria-describedby="lcat-dialog"]
   .ui-button.ui-dialog-titlebar-close {
   right: 15px;
   top: 7px !important;
@@ -48,10 +48,10 @@ div.ui-dialog[aria-describedby="atlt-dialog"]
   height: 30px !important;
   width: 20px !important;
 }
-div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+div.ui-dialog[aria-describedby="lcat-chromeai-disabled-message-content"]
   .ui-dialog-buttonset
   .ui-button,
-div.ui-dialog[aria-describedby="atlt-dialog"] .ui-dialog-buttonset .ui-button {
+div.ui-dialog[aria-describedby="lcat-dialog"] .ui-dialog-buttonset .ui-button {
   display: inline-block;
   text-decoration: none;
   font-size: inherit !important;
@@ -69,10 +69,10 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .ui-dialog-buttonset .ui-button {
   box-shadow: 0 1px 0 #c3c4c7;
   vertical-align: top;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .d-none {
+div.ui-dialog[aria-describedby="lcat-dialog"] .d-none {
   display: none !important;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-btn {
   width: 123px;
   display: inline-block;
   font-size: 13px !important;
@@ -92,19 +92,19 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn {
   text-shadow: none;
   text-align: center;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.translate {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-btn.translate {
   background: #3db63d;
   border-color: #33a133;
   color: #fff;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   td:nth-child(2) {
   padding-left: 90px;
   padding-right: 20px;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-name {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-name {
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -112,52 +112,52 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-name {
   margin-block: 0.5rem;
   color: #000;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-icon {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-icon {
   width: 45px;
   margin-right: 15px;
   vertical-align: middle;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   td:nth-child(3),
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   thead
   th:nth-child(3) {
   padding-right: 25px;
   text-align: center;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-table tbody tr {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-table tbody tr {
   border-top: 1px solid #eee;
   height: 64px;
 }
-div.ui-dialog.atlt-rtl[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog.lcat-rtl[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   td:first-child {
   padding-right: 25px;
   padding-left: 0;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   td:first-child {
   padding-left: 25px;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   thead
   th:nth-child(2) {
   padding-left: 90px;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   thead
   th:first-child {
   padding-left: 28px;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-table thead th {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-table thead th {
   background: #f7f7f7;
   text-align: left;
   font-weight: 500;
@@ -165,28 +165,28 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-table thead th {
   color: #555;
   padding-block: 1rem;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   tr
   td
   a:focus {
   box-shadow: none;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"]
-  .atlt-provider-table
+div.ui-dialog[aria-describedby="lcat-dialog"]
+  .lcat-provider-table
   tbody
   tr
   td
   a {
   text-decoration: none;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-table {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-table {
   width: 100%;
   border-collapse: collapse;
   margin: 0;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-modal {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -197,11 +197,11 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   overflow: hidden;
   font-family: inherit;
 }
-.atlt_custom_model .modal-scrollbar {
+.lcat_custom_model .modal-scrollbar {
   overflow-y: scroll;
   height: calc(100% - 160px);
 }
-.atlt_custom_model {
+.lcat_custom_model {
   display: none;
   position: fixed;
   z-index: 99999;
@@ -211,7 +211,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.75);
 }
-.atlt_custom_model .modal-header {
+.lcat_custom_model .modal-header {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: #fff;
@@ -220,14 +220,14 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   overflow: hidden;
   position: relative;
 }
-.atlt_custom_model .modal-header h2 {
+.lcat_custom_model .modal-header h2 {
   display: inline-block;
   font-size: 1.2rem;
   color: #fff;
   padding: 0;
   line-height: 22px;
 }
-.atlt_custom_model .modal-header .close {
+.lcat_custom_model .modal-header .close {
   cursor: pointer;
   color: #fff;
   font-size: 28px;
@@ -236,16 +236,16 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   right: 10px;
   top: 20px;
 }
-.atlt_custom_model .atlt_actions {
+.lcat_custom_model .lcat_actions {
   margin: 8px;
   position: absolute;
   top: 10px;
   right: 40px;
 }
-.atlt_custom_model .notice-dismiss {
+.lcat_custom_model .notice-dismiss {
   padding: 0;
 }
-.atlt_custom_model h3 {
+.lcat_custom_model h3 {
   width: 100%;
   display: inline-block;
   font-size: 22px;
@@ -253,11 +253,11 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   margin: 20px 0 10px;
   color: #5cb85c;
 }
-.atlt_custom_model .modal-body {
+.lcat_custom_model .modal-body {
   padding: 2px 16px;
   position: relative;
 }
-.ChromeAiTranslator .atlt_chrome_ai {
+.ChromeAiTranslator .lcat_chrome_ai {
   display: inline-flex;
 }
 #chrome_ai_translator_element {
@@ -273,14 +273,14 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   align-items: center;
   justify-content: space-between;
 }
-.atlt_custom_model .atlt_string_container {
+.lcat_custom_model .lcat_string_container {
   overflow-y: scroll;
   overflow-x: hidden;
   height: calc(100vh - 365px);
   width: 100%;
   position: relative;
 }
-.atlt_custom_model table {
+.lcat_custom_model table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
@@ -289,13 +289,13 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   padding: 0;
   margin: 0;
 }
-.atlt_custom_model table td:first-child,
-.atlt_custom_model table th:first-child {
+.lcat_custom_model table td:first-child,
+.lcat_custom_model table th:first-child {
   width: 60px;
   text-align: center;
 }
-.atlt_custom_model table td,
-.atlt_custom_model table th {
+.lcat_custom_model table td,
+.lcat_custom_model table th {
   border: 1px solid #ddd;
   padding: 4px;
   height: 26px;
@@ -306,8 +306,8 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   overflow: hidden;
   vertical-align: middle;
 }
-.atlt_custom_model .atlt_translate_progress,
-.atlt_custom_model .atlt_translate_warning-massage {
+.lcat_custom_model .lcat_translate_progress,
+.lcat_custom_model .lcat_translate_warning-massage {
   left: 10px;
   background: rgba(0, 0, 0, 0.5);
   width: calc(100% - 22px);
@@ -321,7 +321,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
   height: 100%;
   color: #fff;
 }
-.atlt_custom_model .atlt_translate_progress {
+.lcat_custom_model .lcat_translate_progress {
   line-height: 20px;
   font-weight: 700;
   text-align: center;
@@ -330,7 +330,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-modal {
 .progress-percentage {
   margin-top: 10px;
 }
-.atlt_custom_model .modal-footer {
+.lcat_custom_model .modal-footer {
   padding: 2px 16px;
   background-color: #5cb85c;
   color: #fff;
@@ -414,7 +414,7 @@ html.merge-translations:before {
   text-shadow: none !important;
   cursor: default;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error img {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-btn.error img {
   margin-bottom: 0;
   margin-top: 0;
   filter: invert(1) brightness(2);
@@ -422,7 +422,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error img {
   margin-right: 3px;
   width: unset !important;
 }
-div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error {
+div.ui-dialog[aria-describedby="lcat-dialog"] .lcat-provider-btn.error {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -441,7 +441,7 @@ div.ui-dialog[aria-describedby="atlt-dialog"] .atlt-provider-btn.error {
     line-height: 1.5 !important;
   }
 }
-button.atlt-error-reload-btn {
+button.lcat-error-reload-btn {
   background: #0073aa;
   color: #fff !important;
   border: none;
@@ -449,14 +449,14 @@ button.atlt-error-reload-btn {
   padding: 4px 9px;
   cursor: pointer;
 }
-div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+div.ui-dialog[aria-describedby="lcat-chromeai-disabled-message-content"]
   .ui-dialog-content
   ol
   li {
   line-height: 1.7;
   margin-bottom: 10px;
 }
-div.ui-dialog[aria-describedby="atlt-chromeai-disabled-message-content"]
+div.ui-dialog[aria-describedby="lcat-chromeai-disabled-message-content"]
   .ui-widget-header {
   padding: 8px 36px 10px 16px;
 }

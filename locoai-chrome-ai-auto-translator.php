@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-define( 'ATLT_PRO_FILE', __FILE__ );
-define( 'ATLT_PRO_URL', plugin_dir_url( ATLT_PRO_FILE ) );
-define( 'ATLT_PRO_PATH', plugin_dir_path( ATLT_PRO_FILE ) );
-define( 'ATLT_PRO_VERSION', '1.0.0' );
+define( 'LCAT_PRO_FILE', __FILE__ );
+define( 'LCAT_PRO_URL', plugin_dir_url( LCAT_PRO_FILE ) );
+define( 'LCAT_PRO_PATH', plugin_dir_path( LCAT_PRO_FILE ) );
+define( 'LCAT_PRO_VERSION', '1.0.0' );
 
 
 if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
@@ -28,7 +28,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 
 		/**
 		 * The unique instance of the plugin.
-		 *
+		 
 		 * @var LocoAutoTranslateAddonPro
 		 */
 
@@ -64,16 +64,16 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		public static function register() {
 
 			$thisPlugin = self::$instance;
-			register_activation_hook( ATLT_PRO_FILE, array( $thisPlugin, 'atlt_activate' ) );
-			register_deactivation_hook( ATLT_PRO_FILE, array( $thisPlugin, 'atlt_deactivate' ) );
+			register_activation_hook( LCAT_PRO_FILE, array( $thisPlugin, 'lcat_activate' ) );
+			register_deactivation_hook( LCAT_PRO_FILE, array( $thisPlugin, 'lcat_deactivate' ) );
 
 			if ( is_admin() ) {
 
-				add_action( 'init', array( $thisPlugin, 'atlt_load_textdomain' ) );
-				add_action( 'admin_enqueue_scripts', array( $thisPlugin, 'atlt_enqueue_scripts' ) );
-				add_filter( 'loco_api_providers', array( $thisPlugin, 'atlt_register_api' ), 10, 1 );
-				add_action( 'loco_api_ajax', array( $thisPlugin, 'atlt_ajax_init' ), 0, 0 );
-				add_action( 'wp_ajax_save_all_translations', array( $thisPlugin, 'atlt_save_translations_handler' ) );
+				add_action( 'init', array( $thisPlugin, 'lcat_load_textdomain' ) );
+				add_action( 'admin_enqueue_scripts', array( $thisPlugin, 'lcat_enqueue_scripts' ) );
+				add_filter( 'loco_api_providers', array( $thisPlugin, 'lcat_register_api' ), 10, 1 );
+				add_action( 'loco_api_ajax', array( $thisPlugin, 'lcat_ajax_init' ), 0, 0 );
+				add_action( 'wp_ajax_save_all_translations', array( $thisPlugin, 'lcat_save_translations_handler' ) );
 		
 			}
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 * @param array $apis Existing API providers.
 		 * @return array Modified list of API providers including this addon.
 		 */
-		function atlt_register_api( array $apis ) {
+		function lcat_register_api( array $apis ) {
 
 			$apis[] = array(
 				'id'   => 'loco_auto',
@@ -101,9 +101,9 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 *
 		 * @return void
 		 */
-		function atlt_ajax_init() {
+		function lcat_ajax_init() {
 			
-			add_filter( 'loco_api_translate_loco_auto', array( self::$instance, 'atlt_loco_auto_translator_process_batch' ), 0, 4 );
+			add_filter( 'loco_api_translate_loco_auto', array( self::$instance, 'lcat_loco_auto_translator_process_batch' ), 0, 4 );
 		}
 		
 		/**
@@ -116,7 +116,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 * @return array Resolved targets mapped by index.
 		 * @throws Loco_error_Exception When cached data is not available.
 		 */
-		function atlt_loco_auto_translator_process_batch(array $targets, array $items, Loco_Locale $locale, array $config) {
+		function lcat_loco_auto_translator_process_batch(array $targets, array $items, Loco_Locale $locale, array $config) {
 			
 			$targets = array();
 
@@ -183,7 +183,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 *
 		 * @return void Outputs JSON success or error and terminates execution.
 		 */
-		function atlt_save_translations_handler() {
+		function lcat_save_translations_handler() {
 
 			check_ajax_referer( 'loco-addon-nonces', 'wpnonce' );
 
@@ -255,9 +255,9 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 *
 		 * @return void
 		 */
-		public function atlt_load_textdomain() {
+		public function lcat_load_textdomain() {
 			
-			load_plugin_textdomain( 'loco-auto-translate', false, basename( dirname( ATLT_PRO_FILE ) ) . '/languages/' );
+			load_plugin_textdomain( 'loco-auto-translate', false, basename( dirname( LCAT_PRO_FILE ) ) . '/languages/' );
 			
 		}
 
@@ -267,35 +267,35 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 * @param string $hook Current admin page hook suffix.
 		 * @return void
 		 */
-		function atlt_enqueue_scripts( $hook ) {
+		function lcat_enqueue_scripts( $hook ) {
 			
-			if ( $hook == 'loco-translate_page_loco-atlt-register' ) {
+			if ( $hook == 'loco-translate_page_loco-lcat-register' ) {
 				return;
 			}
 			if (( isset( $_REQUEST['action'] ) && sanitize_key( wp_unslash( $_REQUEST['action'] ) ) === 'file-edit' ) ) {
 			
-				wp_register_script( 'loco-addon-custom', ATLT_PRO_URL . 'assets/js/pro-custom.min.js', array( 'loco-translate-admin' ), ATLT_PRO_VERSION, true );
-				wp_register_script( 'atlt-chrome-ai-translator-for-loco', ATLT_PRO_URL . 'assets/js/chrome-ai-translator.min.js', array( 'loco-addon-custom' ), ATLT_PRO_VERSION, true );
+				wp_register_script( 'loco-addon-custom', LCAT_PRO_URL . 'assets/js/pro-custom.min.js', array( 'loco-translate-admin' ), LCAT_PRO_VERSION, true );
+				wp_register_script( 'lcat-chrome-ai-translator-for-loco', LCAT_PRO_URL . 'assets/js/chrome-ai-translator.min.js', array( 'loco-addon-custom' ), LCAT_PRO_VERSION, true );
 				
 				wp_register_style(
 						'loco-addon-custom-css',
-						ATLT_PRO_URL . 'assets/css/custom.min.css',
+						LCAT_PRO_URL . 'assets/css/custom.min.css',
 						null,
-						ATLT_PRO_VERSION,
+						LCAT_PRO_VERSION,
 						'all'
 				);
 				wp_enqueue_script( 'loco-addon-custom' );
-				wp_enqueue_script( 'atlt-chrome-ai-translator-for-loco' );
+				wp_enqueue_script( 'lcat-chrome-ai-translator-for-loco' );
 				wp_enqueue_style( 'loco-addon-custom-css' );
 
 				$extraData['ajax_url']        = admin_url( 'admin-ajax.php' );
 				$extraData['nonce']           = wp_create_nonce( 'loco-addon-nonces' );
-				$extraData['ATLT_URL']        = ATLT_PRO_URL;
+				$extraData['LCAT_URL']        = LCAT_PRO_URL;
 				$extraData['preloader_path']  = 'preloader.gif';
 				$extraData['chromeAi_preview']      = 'chrome.png';
 				$extraData['error_preview']    = 'error-icon.svg';
 				$extraData['document_preview'] = 'document.svg';
-				$extraData['extra_class']= is_rtl() ? 'atlt-rtl' : '';
+				$extraData['extra_class']= is_rtl() ? 'lcat-rtl' : '';
 				wp_localize_script( 'loco-addon-custom', 'extradata', $extraData );
 				wp_add_inline_script(
 						'loco-translate-admin',
@@ -309,11 +309,11 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 *
 		 * @return void
 		 */
-		public function atlt_activate() {
+		public function lcat_activate() {
 			
-			update_option('atlt-pro-version', ATLT_PRO_VERSION);
-			update_option('atlt-pro-installDate', gmdate('Y-m-d h:i:s'));
-			update_option('atlt-type', 'PRO');
+			update_option('lcat-pro-version', LCAT_PRO_VERSION);
+			update_option('lcat-pro-installDate', gmdate('Y-m-d h:i:s'));
+			update_option('lcat-type', 'PRO');
 	
 		}
 
@@ -322,7 +322,7 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 		 *
 		 * @return void
 		 */
-		public function atlt_deactivate() {
+		public function lcat_deactivate() {
 		}
 
 		/**
@@ -352,10 +352,10 @@ if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 	 *
 	 * @return LocoAutoTranslateAddonPro
 	 */
-	function ATLT_PRO() {
+	function LCAT_PRO() {
 		return LocoAutoTranslateAddonPro::get_instance();
 	}
 
-	ATLT_PRO();
+	LCAT_PRO();
 }
 
