@@ -8,7 +8,7 @@ Text Domain:loco-translate-addon
 Domain Path:languages
 Author:Cool Plugins
 Requires Plugins: loco-translate
-Plugin URI: https://github.com/CoolPluginsTeam/LocoAI-Chrome-AI-Auto-Translator
+Plugin URI: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
