@@ -1,37 +1,112 @@
 ﻿=== LocoAI – Chrome AI Auto Translator ===
-Contributors: narinder-singh, satindersingh, coolplugins
-Donate link: https://paypal.me/CoolPlugins/10USD/
-Tags: translate, AI Translation, Auto Translate, Local AI Models, Chrome AI
+Contributors: coolpluginsteam
+Tags: translation, chrome ai, translator api, loco translate, multilingual, wordpress plugins
 Requires at least: 5.0
-Tested up to: 6.6.2
+Tested up to: 6.8.3
 Requires PHP: 7.2
 Stable tag: 1.0.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-The LocoAI – Chrome AI Auto Translator for WordPress Plugins enhances translation capabilities by using Chrome Translator API (https://developer.chrome.com/docs/ai/translator-api). Instantly translate plugin and theme strings without any API keys.
+LocoAI – Chrome AI Auto Translator is a Chrome Extension and WordPress companion plugin that uses Google Chrome’s built-in Translator API to automatically translate plugin and theme strings directly in the browser — no paid API keys or external services required.
 
 == Description ==
 
-### LocoAI – Chrome AI Auto Translator
+LocoAI – Chrome AI Auto Translator empowers WordPress developers and site owners to instantly translate any plugin or theme strings using Chrome’s built-in Translator API.  
+It works as a browser-side Chrome Extension that communicates with the Loco Translate editor, enabling one-click translation of all language strings directly in the browser — fast, private, and cost-free.
 
-The LocoAI Chrome AI Auto Translator For WordPress Plugins provides a seamless experience for developers and website owners looking to translate their WordPress content efficiently. This plugin leverages local AI models to translate text directly in the browser, ensuring high-quality translations without the need for external paid translation services.
+This project is part of the *Google Chrome Built-in AI Challenge 2025* under the "Chrome Extension – Most Helpful" category.
 
-With this plugin, you can easily translate any WordPress plugin or theme strings into the desired language, saving time and effort for those managing multilingual websites.
+= No Paid API Required – Unlimited Translations =
 
-### 🤖 No Paid API Required! + Unlimited Translations!
+- Translate unlimited characters without any API key.
+- Uses the Chrome Translator API, which operates locally through Chrome Translator API models.
+- High-speed translation performance with up to 25,000 characters per minute.
 
-* Enjoy unlimited translations without the need for a paid API key. Simply install the plugin and start translating with one click.
-* The plugin integrates with the Chrome Translator API, allowing for efficient and accurate translations of any translatable text strings.
+== Problem Statement ==
 
-### ⚡ Key Features
+Translating WordPress plugins and themes manually or through paid translation APIs (such as DeepL or Google Translate API) can be expensive and time-consuming.  
+Most tools require:
+- API keys from third-party providers
+- Usage-based pricing
+- Privacy trade-offs when sending content externally
 
-* One-click translation for all translatable strings, ensuring a quick and easy process.
-* Translate unlimited characters without any costs or API key requirements, with the ability to translate over 25000 characters in just 1 minute.
+== Solution ==
 
-### Installation
+LocoAI leverages Chrome’s built-in AI Translator API, which runs locally in the browser, allowing:
+- Secure and private in-browser translations
+- No external API key or cloud dependency
+- Instant, high-quality results
+- Seamless integration with WordPress Loco Translate
 
-1. Download **LocoAI – Chrome AI Auto Translator** from the GitHub repository and place it inside your WordPress installation under:
-wp-content/plugins/locoai-chrome-ai-auto-translator/
-2. Activate the plugin through the **Plugins >> Installed Plugin** menu in WordPress.
-3. Edit any plugin or theme language file using Loco's built-in editor, where you will find an auto-translate button to quickly translate all translatable strings.
+== Key Features ==
+
+* One-click translation inside the Loco Translate editor.
+* Unlimited translations with no costs or API limits.
+* Uses Chrome Translator API for high-quality results.
+* Private and secure – translations run locally in the browser.
+* Developer-friendly and open source.
+* Works with any WordPress plugin or theme supporting .po/.mo files.
+
+== Tech Stack & APIs Used ==
+
+* Platform: Chrome Extension + WordPress Plugin  
+* Primary API: Chrome Translator API (https://developer.chrome.com/docs/ai/translator-api)  
+* Other technologies:  
+  - WordPress 5.0+  
+  - PHP 7.2+  
+  - JavaScript (ES6), HTML, CSS  
+  - Chrome Extension Manifest V3  
+
+== Installation ==
+
+= WordPress Plugin =
+1. Download or clone the repository:
+   `git clone https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator.git`
+2. Upload it to your WordPress installation under:
+   `/wp-content/plugins/locoai-chrome-ai-auto-translator/`
+3. Activate the plugin from the Plugins menu in your WordPress dashboard.
+4. Open any plugin or theme language file using Loco Translate to access the Auto-Translate button.
+
+= Chrome Extension =
+1. Open `chrome://extensions/` in Google Chrome.
+2. Enable Developer Mode.
+3. Click "Load unpacked" and select the `/chrome-extension/` folder from the repository.
+
+== Usage ==
+
+1. Install and activate both the WordPress plugin and Chrome extension.
+2. Open any translation file in Loco Translate.
+3. Click the “Auto Translate with Chrome AI” button.
+4. Wait a few seconds while Chrome Translator API processes the strings.
+5. Review and save translations.
+
+== Demo Video ==
+Watch the 3-minute demo here:  
+https://youtu.be/your-demo-video-link
+
+== Open Source Repository ==
+Source code available on GitHub:  
+https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+
+== Future Enhancements ==
+* Integrate the Proofreader API for bilingual validation.
+* Add contextual translation via the Prompt API.
+* Improve multilingual UI in Chrome Extension.
+* Expand compatibility for Elementor and Divi translations.
+
+== Support ==
+* GitHub Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues  
+* Website: https://coolplugins.net/support/  
+* Donate: https://paypal.me/CoolPlugins/10USD  
+
+== Team ==
+Developed by Cool Plugins Team  
+Website: https://coolplugins.net  
+LinkedIn:https://in.linkedin.com/company/coolplugins 
+Twitter: https://x.com/cool_plugins
+
+== Links ==
+* GitHub Repository: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+* Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues
+* Releases: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/releases
