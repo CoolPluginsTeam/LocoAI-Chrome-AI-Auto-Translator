@@ -1,6 +1,6 @@
 ﻿=== LocoAI – Chrome AI Auto Translator ===
-Contributors: coolpluginsteam
-Tags: translation, chrome ai, translator api, loco translate, multilingual, wordpress plugins
+Contributors: narinder-singh,satindersingh,coolplugins
+Tags: translation, chrome ai, translator api, loco translate, wordpress plugins
 Requires at least: 5.0
 Tested up to: 6.8.3
 Requires PHP: 7.2
