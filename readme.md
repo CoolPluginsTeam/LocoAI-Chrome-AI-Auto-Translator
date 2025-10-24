@@ -6,7 +6,9 @@
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Built with Chrome Translator API](https://img.shields.io/badge/Built%20with-Chrome%20Translator%20API-orange.svg)](https://developer.chrome.com/docs/ai/translator-api)
 
-> **LocoAI – Chrome AI Auto Translator** is a Chrome Extension and WordPress companion tool that uses **Google Chrome’s built-in AI Translator API (Chrome Translator API)** to automatically translate plugin and theme strings directly in the browser — no paid API keys or external services required.
+> **LocoAI – Chrome AI Auto Translator** is a powerful web application built to simplify WordPress localization.  
+It uses **Google Chrome’s native AI Translator API** to automatically translate plugin and theme strings directly in the browser.  
+No paid APIs, no external translation services — just fast, accurate, and secure translations powered by Chrome’s AI engine.
 
 ---
 
@@ -21,37 +23,44 @@
 - [Usage](#usage)
 - [Demo Video](#demo-video)
 - [Open Source Repository](#open-source-repository)
-- [Team](#team)
-- [Links](#links)
-
+- [Recognition] (#Recognition)
 ---
 
 ## Overview
 
-**LocoAI – Chrome AI Auto Translator** empowers WordPress developers and site owners to instantly translate any plugin or theme strings using **Chrome’s built-in Translator API**, powered by **Chrome Translator API**.  
-It works as a **browser-side Chrome Extension** that communicates with WordPress’s Loco Translate UI, enabling one-click translation of all language strings directly in the browser — **fast, private, and cost-free**.
+**LocoAI – Chrome AI Auto Translator** is a smart web application that helps WordPress developers and site owners instantly translate any plugin or theme strings using **Google Chrome’s built-in AI Translator API (Chrome Translator API)**.
 
-This project is part of the **Google Chrome Built-in AI Challenge 2025**, under the *Chrome Extension – Most Helpful Category*.
+It runs directly in your browser and connects seamlessly with your WordPress localization workflow, allowing quick, accurate, and cost-free translations — without the need for external APIs or paid translation services.
+
+Built for **speed, privacy, and simplicity**, LocoAI makes it easy to generate high-quality translations in just a few clicks, right from your browser window.
 
 ---
 
+
+
 ## Problem Statement
 
-Translating WordPress plugins and themes manually or through paid translation services (e.g., DeepL, Google Translate API) can be expensive and time-consuming.  
-Existing translation plugins require:
-- API keys from third-party providers  
-- Usage-based pricing  
-- Privacy risks from sending text externally  
+Translating WordPress plugins and themes manually or through traditional third-party translation services can be both expensive and time-consuming.
+
+Many existing solutions also come with extra steps — you often need to:
+- Set up external API keys  
+- Pay based on usage limits  
+
 
 ---
 
 ## Solution
 
-**LocoAI** leverages **Chrome’s built-in AI Translator API**, which runs locally via **Chrome Translator API**, allowing:
-- Secure and private in-browser translations  
-- No API key or cloud dependency  
-- Instant results (up to 25 000 characters/minute)  
-- Seamless integration with WordPress Loco Translate  
+**LocoAI** takes advantage of **Chrome’s built-in AI Translator API**, running entirely within your browser through the **Chrome Translator API**.  
+
+This means translations happen instantly and securely — your content never leaves your computer. There’s no need for API keys, external servers, or paid plans. Everything works locally, giving you complete privacy and full control over your translations.
+
+With **LocoAI**, you can enjoy:
+- Fast and private in-browser translations  
+- No API keys or cloud connections required  
+- Instant results (up to 25,000 characters per minute)  
+- Effortless integration with the **WordPress Loco Translate** plugin
+
 
 ---
 
@@ -103,13 +112,8 @@ https://youtu.be/your-demo-video-link
 Source code available on GitHub:  
 https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
 
-## Team 
-Developed by Cool Plugins Team  
-Website: https://coolplugins.net  
-LinkedIn: https://in.linkedin.com/company/coolplugins
-Twitter: https://x.com/cool_plugins
 
-## Links
-* GitHub Repository: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
-* Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues
-* Releases: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/releases
+
+## Recognition
+
+This project is proudly part of the **Google Chrome Built-in AI Challenge 2025**, under the *Web Application – Most Helpful Category*.
