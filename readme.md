@@ -4,7 +4,7 @@
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.2%2B-purple.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
-[![Built with Chrome AI](https://img.shields.io/badge/Built%20with-Chrome%20Gemini%20Nano-orange.svg)](https://developer.chrome.com/docs/ai)
+[![Built with Chrome Translator API](https://img.shields.io/badge/Built%20with-Chrome%20Translator%20API-orange.svg)](https://developer.chrome.com/docs/ai/translator-api)
 
 > **LocoAI – Chrome AI Auto Translator** is a Chrome Extension and WordPress companion tool that uses **Google Chrome’s built-in AI Translator API (Gemini Nano)** to automatically translate plugin and theme strings directly in the browser — no paid API keys or external services required.
 
