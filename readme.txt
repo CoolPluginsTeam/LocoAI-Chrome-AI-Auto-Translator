@@ -82,18 +82,12 @@ LocoAI leverages Chrome’s built-in AI Translator API, which runs locally in th
 5. Review and save translations.
 
 == Demo Video ==
-Watch the 3-minute demo here:  
-https://youtu.be/your-demo-video-link
+ https://youtu.be/your-demo-video-link
 
 == Open Source Repository ==
 Source code available on GitHub:  
 https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
 
-== Future Enhancements ==
-* Integrate the Proofreader API for bilingual validation.
-* Add contextual translation via the Prompt API.
-* Improve multilingual UI in Chrome Extension.
-* Expand compatibility for Elementor and Divi translations.
 
 == Support ==
 * GitHub Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues  
