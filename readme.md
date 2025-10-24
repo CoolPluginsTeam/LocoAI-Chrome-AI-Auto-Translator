@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![Built with Chrome Translator API](https://img.shields.io/badge/Built%20with-Chrome%20Translator%20API-orange.svg)](https://developer.chrome.com/docs/ai/translator-api)
 
-> **LocoAI – Chrome AI Auto Translator** is a Chrome Extension and WordPress companion tool that uses **Google Chrome’s built-in AI Translator API (Gemini Nano)** to automatically translate plugin and theme strings directly in the browser — no paid API keys or external services required.
+> **LocoAI – Chrome AI Auto Translator** is a Chrome Extension and WordPress companion tool that uses **Google Chrome’s built-in AI Translator API (Chrome Translator API)** to automatically translate plugin and theme strings directly in the browser — no paid API keys or external services required.
 
 ---
 
@@ -31,7 +31,7 @@
 
 ## 🧠 Overview
 
-**LocoAI – Chrome AI Auto Translator** empowers WordPress developers and site owners to instantly translate any plugin or theme strings using **Chrome’s built-in Translator API**, powered by **Gemini Nano**.  
+**LocoAI – Chrome AI Auto Translator** empowers WordPress developers and site owners to instantly translate any plugin or theme strings using **Chrome’s built-in Translator API**, powered by **Chrome Translator API**.  
 It works as a **browser-side Chrome Extension** that communicates with WordPress’s Loco Translate UI, enabling one-click translation of all language strings directly in the browser — **fast, private, and cost-free**.
 
 This project is part of the **Google Chrome Built-in AI Challenge 2025**, under the *Chrome Extension – Most Helpful Category*.
@@ -50,7 +50,7 @@ Existing translation plugins require:
 
 ## 💡 Solution
 
-**LocoAI** leverages **Chrome’s built-in AI Translator API**, which runs locally via **Gemini Nano**, allowing:
+**LocoAI** leverages **Chrome’s built-in AI Translator API**, which runs locally via **Chrome Translator API**, allowing:
 - Secure and private in-browser translations  
 - No API key or cloud dependency  
 - Instant results (up to 25 000 characters/minute)  
@@ -63,7 +63,7 @@ Existing translation plugins require:
 ✅ **One-click Translation** – Instantly translate all strings within the Loco Translate editor.  
 ✅ **Unlimited Translations** – No usage caps or API costs.  
 ✅ **AI Quality Translation** – Uses the Chrome Translator API for high-accuracy results.  
-✅ **Privacy First** – All processing happens locally using Gemini Nano.  
+✅ **Privacy First** – All processing happens locally using Chrome Translator API.  
 ✅ **Developer-Friendly** – Open-source code and easy customization.  
 ✅ **Cross-Platform** – Works with any WordPress plugin or theme supporting `.po` files.
 
