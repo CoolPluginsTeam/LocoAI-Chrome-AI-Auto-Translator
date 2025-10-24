@@ -19,7 +19,7 @@ define( 'ATLT_PRO_FILE', __FILE__ );
 define( 'ATLT_PRO_URL', plugin_dir_url( ATLT_PRO_FILE ) );
 define( 'ATLT_PRO_PATH', plugin_dir_path( ATLT_PRO_FILE ) );
 define( 'ATLT_PRO_VERSION', '1.0.0' );
-define( 'ATLT_PLUGIN_BASENAME', plugin_basename( ATLT_PRO_FILE ) );
+
 
 if ( ! class_exists( 'LocoAutoTranslateAddonPro' ) ) {
 
