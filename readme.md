@@ -23,7 +23,8 @@ No paid APIs, no external translation services — just fast, accurate, and secu
 - [Usage](#usage)
 - [Demo Video](#demo-video)
 - [Open Source Repository](#open-source-repository)
-- [Recognition] (#Recognition)
+- [Recognition](#recognition)
+
 ---
 
 ## Overview
