@@ -74,7 +74,7 @@ Existing translation plugins require:
 **Platform:** Chrome Extension + WordPress Plugin  
 **Primary AI APIs:**
 - [Chrome Translator API](https://developer.chrome.com/docs/ai/translator-api)  
-- [Prompt API for Chrome Extensions](https://developer.chrome.com/docs/ai/prompt-api)
+
 
 **Other Technologies:**
 - WordPress 5.0+ / PHP 7.2+  
