@@ -86,3 +86,30 @@ Existing translation plugins require:
 1. Download the repository or clone it:
    ```bash
    git clone https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator.git
+
+
+## Usage 
+
+1. Install and activate both the WordPress plugin and Chrome extension.
+2. Open any translation file in Loco Translate.
+3. Click the “Auto Translate with Chrome AI” button.
+4. Wait a few seconds while Chrome Translator API processes the strings.
+5. Review and save translations.
+
+## Demo Video
+https://youtu.be/your-demo-video-link
+
+## Open Source Repository
+Source code available on GitHub:  
+https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+
+## Team 
+Developed by Cool Plugins Team  
+Website: https://coolplugins.net  
+LinkedIn:https://in.linkedin.com/company/coolplugins 
+Twitter: https://x.com/cool_plugins
+
+## Links
+* GitHub Repository: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+* Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues
+* Releases: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/releases
