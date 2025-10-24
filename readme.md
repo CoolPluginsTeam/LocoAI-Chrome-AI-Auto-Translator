@@ -106,7 +106,7 @@ https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
 ## Team 
 Developed by Cool Plugins Team  
 Website: https://coolplugins.net  
-LinkedIn:https://in.linkedin.com/company/coolplugins 
+LinkedIn: https://in.linkedin.com/company/coolplugins 
 Twitter: https://x.com/cool_plugins
 
 ## Links
