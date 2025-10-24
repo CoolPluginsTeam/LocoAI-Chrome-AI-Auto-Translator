@@ -275,11 +275,11 @@ if ( ! class_exists( 'LocoAIChromeAutoTranslate' ) ) {
 			if (( isset( $_REQUEST['action'] ) && sanitize_key( wp_unslash( $_REQUEST['action'] ) ) === 'file-edit' ) ) {
 			
 				wp_register_script( 'loco-addon-custom', LCAT_PRO_URL . 'assets/js/lcat-pro-custom.min.js', array( 'loco-translate-admin' ), LCAT_PRO_VERSION, true );
-				wp_register_script( 'lcat-chrome-ai-translator-for-loco', LCAT_PRO_URL . 'assets/js/lcat-chrome-ai-translator.js.js', array( 'loco-addon-custom' ), LCAT_PRO_VERSION, true );
+				wp_register_script( 'lcat-chrome-ai-translator-for-loco', LCAT_PRO_URL . 'assets/js/lcat-chrome-ai-translator.min.js', array( 'loco-addon-custom' ), LCAT_PRO_VERSION, true );
 				
 				wp_register_style(
 						'loco-addon-custom-css',
-						LCAT_PRO_URL . 'assets/css/lcamt-custom.min.css',
+						LCAT_PRO_URL . 'assets/css/lcat-custom.min.css',
 						null,
 						LCAT_PRO_VERSION,
 						'all'
