@@ -94,12 +94,6 @@ https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
 * Website: https://coolplugins.net/support/  
 * Donate: https://paypal.me/CoolPlugins/10USD  
 
-== Team ==
-Developed by Cool Plugins Team  
-Website: https://coolplugins.net  
-LinkedIn:https://in.linkedin.com/company/coolplugins 
-Twitter: https://x.com/cool_plugins
-
 == Links ==
 * GitHub Repository: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
 * Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues
