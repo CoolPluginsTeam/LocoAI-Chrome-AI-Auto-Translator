@@ -1,6 +1,6 @@
 # 🌐 LocoAI – Chrome AI Auto Translator
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git)
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/)
 [![PHP](https://img.shields.io/badge/PHP-7.2%2B-purple.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL%20v2%2B-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -95,7 +95,7 @@ With **LocoAI**, you can enjoy:
 ### For WordPress Plugin
 1. Download the repository or clone it:
    ```bash
-   git clone https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator.git
+   git clone https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git
 
 
 ## Usage 
@@ -110,8 +110,7 @@ With **LocoAI**, you can enjoy:
 https://youtu.be/your-demo-video-link
 
 ## Open Source Repository
-Source code available on GitHub:  
-https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git
 
 
 

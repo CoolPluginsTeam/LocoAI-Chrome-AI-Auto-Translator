@@ -7,7 +7,7 @@ License:GPLv3
 Text Domain:loco-translate-addon
 Domain Path:languages
 Requires Plugins: loco-translate
-Plugin URI: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+Plugin URI: https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

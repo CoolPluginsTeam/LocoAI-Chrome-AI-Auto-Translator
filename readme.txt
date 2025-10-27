@@ -62,7 +62,7 @@ LocoAI leverages Chrome’s built-in AI Translator API, which runs locally in th
 
 = WordPress Plugin =
 1. Download or clone the repository:
-   `git clone https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator.git`
+   `git clone https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git`
 2. Upload it to your WordPress installation under:
    `/wp-content/plugins/locoai-chrome-ai-auto-translator/`
 3. Activate the plugin from the Plugins menu in your WordPress dashboard.
@@ -85,16 +85,15 @@ LocoAI leverages Chrome’s built-in AI Translator API, which runs locally in th
  https://youtu.be/your-demo-video-link
 
 == Open Source Repository ==
-Source code available on GitHub:  
-https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
+https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.git
 
 
 == Support ==
-* GitHub Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues  
+* GitHub Issues: https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.gitissues  
 * Website: https://coolplugins.net/support/  
 * Donate: https://paypal.me/CoolPlugins/10USD  
 
 == Links ==
 * GitHub Repository: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator
-* Issues: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/issues
-* Releases: https://github.com/CoolPluginsTeam/locoai-chrome-ai-auto-translator/releases
+* Issues: https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.gitissues
+* Releases: https://github.com/JYOTITHAKUROSEM/locoai-chrome-ai-auto-translator.gitreleases
