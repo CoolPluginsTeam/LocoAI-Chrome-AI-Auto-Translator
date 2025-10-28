@@ -111,7 +111,7 @@ class ChromeAiTranslator {
                 </ol>
                 <p>For more information, please refer to the <a href="https://developer.chrome.com/docs/ai/translator-api" target="_blank">documentation</a>.</p>   
                 <p>If the issue persists, please ensure that your browser is up to date and restart your browser.</p>
-                <p>If you continue to experience issues after following the above steps, please <a href="https://my.coolplugins.net/account/support-tickets/" target="_blank" rel="noopener">open a support ticket</a> with our team. We are here to help you resolve any problems and ensure a smooth translation experience.</p>
+                
                 <div style="text-align: right;">
                     <button onclick="location.reload()" class="lcat-error-reload-btn">Reload Page</button>
                 </div>
